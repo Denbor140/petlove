@@ -7,6 +7,10 @@
   padding-bottom: 20px;
 }
 
+.header_primary {
+  position: static;
+}
+
 .header_container {
   display: flex;
   align-items: center;
@@ -29,6 +33,10 @@
   stroke: #fff;
   width: 100%;
   height: 100%;
+}
+
+.burger_icon_primary {
+  stroke: var(--primary-color);
 }
 
 @media screen and (min-width: 1280px) {

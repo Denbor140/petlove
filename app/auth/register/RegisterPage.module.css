@@ -1,0 +1,31 @@
+.main {
+  padding-bottom: 20px;
+}
+
+.register_img_container {
+  position: relative;
+  background-color: var(--secondary-color);
+  width: 334px;
+  height: 280px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.register_img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  z-index: 1;
+}
+
+.rectangle_icon {
+  position: absolute;
+  top: 22px;
+  width: 312px;
+  height: 100%;
+  right: 0px;
+  pointer-events: none;
+}

@@ -4,25 +4,37 @@ import Link from "next/link";
 import css from "./header.module.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
   const [open, isOpen] = useState(false);
 
   return (
-    <header className={css.header}>
+    <header
+      className={`${css.header} ${pathname === "/" ? css.header : css.header_primary}`}
+    >
       <div className="container">
         <div className={css.header_container}>
           <Link href={"/"}>
-            <svg className={css.logo}>
-              <use href="/icons.svg#icon-logo"></use>
-            </svg>
+            {pathname === "/" ? (
+              <svg className={css.logo}>
+                <use href="/icons.svg#icon-logo"></use>
+              </svg>
+            ) : (
+              <svg className={css.logo}>
+                <use href="/icons.svg#icon-logo-primary"></use>
+              </svg>
+            )}
           </Link>
           <button
             type="button"
             className={css.burger_btn}
             onClick={() => isOpen(true)}
           >
-            <svg className={css.burger_icon}>
+            <svg
+              className={`${css.burger_icon} ${pathname === "/" ? css.burger_icon : css.burger_icon_primary}`}
+            >
               <use href="/icons.svg#icon-burger-menu"></use>
             </svg>
           </button>

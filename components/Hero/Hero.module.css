@@ -1,0 +1,32 @@
+.hero_section {
+  padding-top: 10px;
+}
+
+.hero_container {
+  width: 335px;
+  height: 390px;
+  display: flex;
+  align-items: flex-end;
+  background-color: var(--secondary-color);
+  border-radius: 30px;
+  padding-bottom: 50px;
+}
+
+.hero_title {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.hero_title > span {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hero_subtitle {
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: #fff;
+}

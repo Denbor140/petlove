@@ -1,0 +1,9 @@
+.user_avatar_default {
+  width: 40px;
+  height: 40px;
+  background-color: var(--tertiary-color);
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

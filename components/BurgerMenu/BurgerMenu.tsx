@@ -5,9 +5,12 @@ import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
 import Nav from "../Nav/Nav";
 import AuthNav from "../AuthNav/AuthNav";
+import { useAuthStore } from "@/lib/store/authStore";
+import LogOutBtn from "../LogOutBtn/LogOutBtn";
 
 export default function BurgerMenu({ onClose }: { onClose: () => void }) {
   const [open, isOpen] = useState(false);
+  const { isAuthenticated, isCheckingAuth } = useAuthStore();
 
   useEffect(() => {
     const raf = requestAnimationFrame(() => isOpen(true));
@@ -49,7 +52,11 @@ export default function BurgerMenu({ onClose }: { onClose: () => void }) {
         </div>
 
         <div onClick={() => isOpen(false)}>
-          <AuthNav />
+          {isCheckingAuth ? null : isAuthenticated ? (
+            <LogOutBtn />
+          ) : (
+            <AuthNav />
+          )}
         </div>
       </div>
     </div>,

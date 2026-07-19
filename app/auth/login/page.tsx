@@ -1,25 +1,25 @@
-import css from "./RegisterPage.module.css";
-import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
+import css from "./LoginPage.module.css";
+import LoginForm from "@/components/LoginForm/LoginForm";
 import Image from "next/image";
 
-export default function RegisterPage() {
+export default function LoginPage() {
   return (
     <main className={css.main}>
       <div className="container">
-        <div className={css.register_img_container}>
+        <div className={css.login_img_container}>
           <Image
-            src={"/jack.webp"}
-            alt="cat Jack"
+            src={"/rich.webp"}
+            alt="Dog Rich"
             width={335}
             height={280}
             loading="eager"
-            className={css.register_img}
+            className={css.login_img}
           />
           <svg className={css.rectangle_icon}>
             <use href="/icons.svg#rectangle"></use>
           </svg>
         </div>
-        <RegistrationForm />
+        <LoginForm />
       </div>
     </main>
   );

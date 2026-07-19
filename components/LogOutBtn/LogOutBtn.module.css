@@ -1,0 +1,12 @@
+.logout_btn {
+  border-radius: 30px;
+  padding: 12px 60px;
+  width: 178px;
+  height: 42px;
+  background-color: var(--tertiary-color);
+  font-weight: 700;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+}

@@ -23,6 +23,12 @@
   fill: #fff;
 }
 
+.user_nav_container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .burger_btn {
   width: 32px;
   height: 32px;

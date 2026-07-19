@@ -5,10 +5,13 @@ import css from "./header.module.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useAuthStore } from "@/lib/store/authStore";
+import UserBar from "../UserBar/UserBar";
 
 export default function Header() {
   const pathname = usePathname();
   const [open, isOpen] = useState(false);
+  const { isAuthenticated, user } = useAuthStore();
 
   return (
     <header
@@ -27,17 +30,20 @@ export default function Header() {
               </svg>
             )}
           </Link>
-          <button
-            type="button"
-            className={css.burger_btn}
-            onClick={() => isOpen(true)}
-          >
-            <svg
-              className={`${css.burger_icon} ${pathname === "/" ? css.burger_icon : css.burger_icon_primary}`}
+          <div className={css.user_nav_container}>
+            {isAuthenticated && user && <UserBar user={user} />}
+            <button
+              type="button"
+              className={css.burger_btn}
+              onClick={() => isOpen(true)}
             >
-              <use href="/icons.svg#icon-burger-menu"></use>
-            </svg>
-          </button>
+              <svg
+                className={`${css.burger_icon} ${pathname === "/" ? css.burger_icon : css.burger_icon_primary}`}
+              >
+                <use href="/icons.svg#icon-burger-menu"></use>
+              </svg>
+            </button>
+          </div>
           {open && <BurgerMenu onClose={() => isOpen(false)} />}
         </div>
       </div>

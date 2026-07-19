@@ -1,5 +1,6 @@
 import { User, UserFull } from "@/types/user";
 import { api } from "./api";
+import { News } from "@/types/news";
 
 export interface RegisterRequest {
   name: string;
@@ -16,6 +17,16 @@ export interface AuthResponse {
   email: string;
   password: string;
   token: string;
+}
+
+interface GetNewsParams {
+  page: number;
+  perPage: number;
+}
+
+export interface GetNewsResponse {
+  results: News[];
+  totalPages: number;
 }
 
 export const register = async (data: RegisterRequest) => {
@@ -40,4 +51,11 @@ export const getCurrentUserFull = async () => {
 
 export const signOut = async () => {
   await api.post("/users/signout");
+};
+
+export const getNews = async ({ page, perPage }: GetNewsParams) => {
+  const res = await api.get<GetNewsResponse>("/news", {
+    params: { page, perPage },
+  });
+  return res.data;
 };

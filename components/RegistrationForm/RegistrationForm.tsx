@@ -19,6 +19,7 @@ import {
 } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/lib/store/authStore";
+import Title from "../Title/Title";
 
 interface FormValues {
   name: string;
@@ -85,7 +86,7 @@ export default function RegistrationForm() {
 
   return (
     <div className={css.registration_container}>
-      <h1 className={css.title}>Registration</h1>
+      <Title title="Registration" marginBottom="12px" />
       <p className={css.subtitle}>
         Thank you for your interest in our platform.
       </p>

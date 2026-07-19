@@ -17,6 +17,7 @@ import { useMutation } from "@tanstack/react-query";
 import { getCurrentUserFull, login, LoginRequest } from "@/lib/api/clientApi";
 import { useAuthStore } from "@/lib/store/authStore";
 import { ApiError } from "@/lib/api/api";
+import Title from "../Title/Title";
 
 interface FormValues {
   email: string;
@@ -70,7 +71,7 @@ export default function LoginForm() {
 
   return (
     <div className={css.login_container}>
-      <h1 className={css.title}>Log in</h1>
+      <Title title="Log in" marginBottom="12px" />
       <p className={css.subtitle}>
         Welcome! Please enter your credentials to login to the platform:
       </p>

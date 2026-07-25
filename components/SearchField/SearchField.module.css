@@ -14,8 +14,23 @@
   background-color: transparent;
   line-height: 1.29;
   letter-spacing: -0.03em;
-  color: rgba(38, 38, 38, 0.5);
   transition: border-color 250ms ease-in-out;
+}
+
+.search_input::placeholder {
+  color: rgba(38, 38, 38, 0.5);
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+}
+
+.search_notices_input {
+  background-color: #fff;
+}
+
+.search_notices_input::placeholder {
+  color: currentColor;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
 }
 
 .active_input,

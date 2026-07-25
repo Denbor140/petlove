@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import css from "./SearchField.module.css";
+import { usePathname } from "next/navigation";
 
 interface SearchFieldProps {
   keyword: string;
@@ -9,6 +10,7 @@ interface SearchFieldProps {
 }
 
 export default function SearchField({ keyword, onSearch }: SearchFieldProps) {
+  const pathname = usePathname();
   const [inputValue, setInputValue] = useState(keyword);
 
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
@@ -26,7 +28,7 @@ export default function SearchField({ keyword, onSearch }: SearchFieldProps) {
       <input
         name="text"
         placeholder="Search"
-        className={`${css.search_input} ${inputValue ? css.active_input : ""}`}
+        className={`${css.search_input} ${pathname === "/notices" ? css.search_notices_input : ""} ${inputValue ? css.active_input : ""}`}
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />

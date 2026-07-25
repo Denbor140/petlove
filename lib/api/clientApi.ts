@@ -2,6 +2,7 @@ import { User, UserFull } from "@/types/user";
 import { api } from "./api";
 import { News } from "@/types/news";
 import { Friends } from "@/types/friends";
+import { Notice } from "@/types/notice";
 
 export interface RegisterRequest {
   name: string;
@@ -28,6 +29,20 @@ interface GetNewsParams {
 
 export interface GetNewsResponse {
   results: News[];
+  totalPages: number;
+}
+
+export interface GetNoticesParams {
+  keyword?: string;
+  category?: string;
+  gender?: string;
+  species?: string;
+  page: number;
+  limit: number;
+}
+
+export interface GetNoticesResponse {
+  results: Notice[];
   totalPages: number;
 }
 
@@ -64,5 +79,41 @@ export const getNews = async ({ keyword, page, limit }: GetNewsParams) => {
 
 export const getFriends = async () => {
   const res = await api.get<Friends[]>("/friends");
+  return res.data;
+};
+
+export const getNotices = async ({
+  keyword,
+  category,
+  gender,
+  species,
+  page,
+  limit,
+}: GetNoticesParams) => {
+  const res = await api.get<GetNoticesResponse>("/notices", {
+    params: {
+      ...(keyword ? { keyword } : {}),
+      ...(category ? { category } : {}),
+      ...(gender ? { sex: gender } : {}),
+      ...(species ? { species } : {}),
+      page,
+      limit,
+    },
+  });
+  return res.data;
+};
+
+export const getNoticesCategories = async () => {
+  const res = await api.get<string[]>("/notices/categories");
+  return res.data;
+};
+
+export const getNoticesGender = async () => {
+  const res = await api.get<string[]>("/notices/sex");
+  return res.data;
+};
+
+export const getNoticesSpecies = async () => {
+  const res = await api.get<string[]>("/notices/species");
   return res.data;
 };

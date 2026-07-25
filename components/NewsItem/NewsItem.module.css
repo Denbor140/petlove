@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 24px;
   margin-bottom: 44px;
+  margin-top: 24px;
 }
 
 .news_item {

@@ -20,8 +20,9 @@ export interface AuthResponse {
 }
 
 interface GetNewsParams {
+  keyword?: string;
   page: number;
-  perPage: number;
+  limit: number;
 }
 
 export interface GetNewsResponse {
@@ -53,9 +54,9 @@ export const signOut = async () => {
   await api.post("/users/signout");
 };
 
-export const getNews = async ({ page, perPage }: GetNewsParams) => {
+export const getNews = async ({ keyword, page, limit }: GetNewsParams) => {
   const res = await api.get<GetNewsResponse>("/news", {
-    params: { page, perPage },
+    params: { ...(keyword ? { keyword } : {}), page, limit },
   });
   return res.data;
 };

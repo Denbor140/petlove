@@ -1,0 +1,71 @@
+.friends_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.friend_work_days {
+  background-color: var(--tertiary-color);
+  border-radius: 30px;
+  padding: 8px;
+  min-width: 88px;
+  height: 32px;
+  align-self: flex-end;
+  text-align: center;
+}
+
+.friend_work_days > p {
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: var(--secondary-color);
+}
+
+.friend_info_container {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.friend_item {
+  background-color: #fff;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 12px 40px 20px;
+}
+
+.friend_info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.friend_title {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-size: 16px;
+}
+
+.friend_contacts {
+  font-style: normal;
+}
+
+.friend_contacts_list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.friend_email,
+.friend_address,
+.friend_phone {
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+}
+
+.friend_email > a > span,
+.friend_address > a > span,
+.friend_phone > a > span {
+  color: rgba(38, 38, 38, 0.5);
+}

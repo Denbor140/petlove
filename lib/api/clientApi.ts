@@ -1,6 +1,7 @@
 import { User, UserFull } from "@/types/user";
 import { api } from "./api";
 import { News } from "@/types/news";
+import { Friends } from "@/types/friends";
 
 export interface RegisterRequest {
   name: string;
@@ -58,5 +59,10 @@ export const getNews = async ({ keyword, page, limit }: GetNewsParams) => {
   const res = await api.get<GetNewsResponse>("/news", {
     params: { ...(keyword ? { keyword } : {}), page, limit },
   });
+  return res.data;
+};
+
+export const getFriends = async () => {
+  const res = await api.get<Friends[]>("/friends");
   return res.data;
 };

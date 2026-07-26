@@ -1,0 +1,34 @@
+.select_wrapper {
+  position: relative;
+}
+
+.clear_btn,
+.search_btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search_btn {
+  right: 12px;
+}
+
+.clear_btn {
+  right: 34px;
+}
+
+.search_icon {
+  stroke: currentColor;
+  fill: #fff;
+}
+
+.clear_icon {
+  stroke: currentColor;
+  fill: none;
+}

@@ -3,6 +3,7 @@ import { api } from "./api";
 import { News } from "@/types/news";
 import { Friends } from "@/types/friends";
 import { Notice } from "@/types/notice";
+import { City } from "@/types/city";
 
 export interface RegisterRequest {
   name: string;
@@ -37,6 +38,7 @@ export interface GetNoticesParams {
   category?: string;
   gender?: string;
   species?: string;
+  locationId?: string;
   page: number;
   limit: number;
 }
@@ -87,6 +89,7 @@ export const getNotices = async ({
   category,
   gender,
   species,
+  locationId,
   page,
   limit,
 }: GetNoticesParams) => {
@@ -96,6 +99,7 @@ export const getNotices = async ({
       ...(category ? { category } : {}),
       ...(gender ? { sex: gender } : {}),
       ...(species ? { species } : {}),
+      ...(locationId ? { locationId } : {}),
       page,
       limit,
     },
@@ -115,5 +119,12 @@ export const getNoticesGender = async () => {
 
 export const getNoticesSpecies = async () => {
   const res = await api.get<string[]>("/notices/species");
+  return res.data;
+};
+
+export const getCities = async (keyword: string): Promise<City[]> => {
+  const res = await api.get<City[]>("/cities/", {
+    params: { keyword },
+  });
   return res.data;
 };

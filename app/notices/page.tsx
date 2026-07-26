@@ -17,6 +17,9 @@ import {
 } from "@/lib/api/clientApi";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import LocationSearch, {
+  LocationOption,
+} from "@/components/LocationSearch/LocationSearch";
 
 const LIMIT = 6;
 
@@ -26,6 +29,7 @@ export default function NoticesPage() {
   const [category, setCategory] = useState("");
   const [gender, setGender] = useState("");
   const [species, setSpecies] = useState("");
+  const [location, setLocation] = useState<LocationOption | null>(null);
 
   const { data: filterOptions } = useQuery({
     queryKey: ["notices-filters"],
@@ -41,7 +45,15 @@ export default function NoticesPage() {
   });
 
   const { data } = useQuery<GetNoticesResponse>({
-    queryKey: ["notices", page, searchText, category, gender, species],
+    queryKey: [
+      "notices",
+      page,
+      searchText,
+      category,
+      gender,
+      species,
+      location?.value,
+    ],
     queryFn: () =>
       getNotices({
         keyword: searchText,
@@ -50,6 +62,7 @@ export default function NoticesPage() {
         category,
         gender,
         species,
+        locationId: location?.value,
       }),
     refetchOnMount: false,
     retry: 1,
@@ -58,6 +71,11 @@ export default function NoticesPage() {
 
   const handleSearch = (value: string) => {
     setSearchText(value);
+    setPage(1);
+  };
+
+  const handleLocationChange = (option: LocationOption | null) => {
+    setLocation(option);
     setPage(1);
   };
 
@@ -121,6 +139,7 @@ export default function NoticesPage() {
               }}
               placeholder="By type"
             />
+            <LocationSearch value={location} onApply={handleLocationChange} />
           </div>
         </section>
         <section className={css.notices_section}>

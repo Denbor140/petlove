@@ -2,11 +2,12 @@
 
 import AsyncSelect from "react-select/async";
 import { SingleValue } from "react-select";
-import { getCities } from "@/lib/api/clientApi";
+import { getCities, getCitiesLocations } from "@/lib/api/clientApi";
 import { City } from "@/types/city";
 import css from "./LocationSearch.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { customStyles } from "./СustomStyles";
+import { useQueryClient } from "@tanstack/react-query";
 
 export interface LocationOption {
   value: string;
@@ -35,18 +36,38 @@ export default function LocationSearch({
   onApply,
 }: LocationSearchProps) {
   const [draft, setDraft] = useState<LocationOption | null>(value);
+  const [defaultOptions, setDefaultOptions] = useState<LocationOption[]>([]);
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    const citiesLocation = async () => {
+      const cities = await queryClient.fetchQuery({
+        queryKey: ["cities-locations"],
+        queryFn: getCitiesLocations,
+        staleTime: 5 * 60 * 1000,
+      });
+      setDefaultOptions(cities.map(mapCityToOption));
+    };
+
+    citiesLocation();
+  }, [queryClient]);
 
   const loadOptions = async (inputValue: string): Promise<LocationOption[]> => {
+    if (inputValue.trim().length === 0) {
+      return defaultOptions;
+    }
+
     if (inputValue.trim().length < 3) {
       return [];
     }
 
-    try {
-      const cities = await getCities(inputValue.trim());
-      return cities.map(mapCityToOption);
-    } catch {
-      return [];
-    }
+    const cities = await queryClient.fetchQuery({
+      queryKey: ["cities", inputValue.trim()],
+      queryFn: () => getCities(inputValue.trim()),
+      staleTime: 5 * 60 * 1000,
+    });
+
+    return cities.map(mapCityToOption);
   };
 
   const handleChange = (option: SingleValue<LocationOption>) => {
@@ -67,12 +88,13 @@ export default function LocationSearch({
       <AsyncSelect<LocationOption>
         instanceId="location-select"
         cacheOptions
+        defaultOptions={defaultOptions}
         loadOptions={loadOptions}
         value={draft}
         onChange={handleChange}
         placeholder="Location"
         noOptionsMessage={({ inputValue }) =>
-          inputValue.length < 3
+          inputValue.length > 0 && inputValue.length < 3
             ? "Enter at least 3 characters"
             : "No locations found"
         }

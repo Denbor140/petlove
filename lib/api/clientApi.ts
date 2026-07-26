@@ -128,3 +128,8 @@ export const getCities = async (keyword: string): Promise<City[]> => {
   });
   return res.data;
 };
+
+export const getCitiesLocations = async (): Promise<City[]> => {
+  const res = await api.get<City[]>("/cities/locations");
+  return res.data;
+};

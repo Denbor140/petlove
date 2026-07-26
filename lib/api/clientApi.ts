@@ -4,6 +4,7 @@ import { News } from "@/types/news";
 import { Friends } from "@/types/friends";
 import { Notice } from "@/types/notice";
 import { City } from "@/types/city";
+import { FilterValue } from "@/components/FilterButtons/FilterButtons";
 
 export interface RegisterRequest {
   name: string;
@@ -33,12 +34,23 @@ export interface GetNewsResponse {
   totalPages: number;
 }
 
+const FILTER_TO_PARAMS: Record<
+  FilterValue,
+  { byPrice?: boolean; byPopularity?: boolean }
+> = {
+  cheap: { byPrice: true },
+  expensive: { byPrice: false },
+  popular: { byPopularity: true },
+  unpopular: { byPopularity: false },
+};
+
 export interface GetNoticesParams {
   keyword?: string;
   category?: string;
   gender?: string;
   species?: string;
   locationId?: string;
+  sortFilter?: FilterValue | null;
   page: number;
   limit: number;
 }
@@ -90,6 +102,7 @@ export const getNotices = async ({
   gender,
   species,
   locationId,
+  sortFilter,
   page,
   limit,
 }: GetNoticesParams) => {
@@ -100,6 +113,7 @@ export const getNotices = async ({
       ...(gender ? { sex: gender } : {}),
       ...(species ? { species } : {}),
       ...(locationId ? { locationId } : {}),
+      ...(sortFilter ? FILTER_TO_PARAMS[sortFilter] : {}),
       page,
       limit,
     },

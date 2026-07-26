@@ -24,6 +24,7 @@
 }
 
 .search_notices_input {
+  border-color: transparent;
   background-color: #fff;
 }
 

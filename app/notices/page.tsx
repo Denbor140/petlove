@@ -20,6 +20,9 @@ import { useState } from "react";
 import LocationSearch, {
   LocationOption,
 } from "@/components/LocationSearch/LocationSearch";
+import FilterButtons, {
+  FilterValue,
+} from "@/components/FilterButtons/FilterButtons";
 
 const LIMIT = 6;
 
@@ -30,6 +33,7 @@ export default function NoticesPage() {
   const [gender, setGender] = useState("");
   const [species, setSpecies] = useState("");
   const [location, setLocation] = useState<LocationOption | null>(null);
+  const [sortFilter, setSortFilter] = useState<FilterValue | null>(null);
 
   const { data: filterOptions } = useQuery({
     queryKey: ["notices-filters"],
@@ -53,6 +57,7 @@ export default function NoticesPage() {
       gender,
       species,
       location?.value,
+      sortFilter,
     ],
     queryFn: () =>
       getNotices({
@@ -63,6 +68,7 @@ export default function NoticesPage() {
         gender,
         species,
         locationId: location?.value,
+        sortFilter,
       }),
     refetchOnMount: false,
     retry: 1,
@@ -76,6 +82,11 @@ export default function NoticesPage() {
 
   const handleLocationChange = (option: LocationOption | null) => {
     setLocation(option);
+    setPage(1);
+  };
+
+  const handleSortChange = (filter: FilterValue | null) => {
+    setSortFilter(filter);
     setPage(1);
   };
 
@@ -109,37 +120,40 @@ export default function NoticesPage() {
         <Title title="Find your favorite pet" marginBottom="40px" />
         <section className={css.notices_filter_section}>
           <div className={css.notices_filter_container}>
-            <SearchField keyword={searchText} onSearch={handleSearch} />
-            <div className={css.notices_filters_top}>
+            <div className={css.filters_top_container}>
+              <SearchField keyword={searchText} onSearch={handleSearch} />
+              <div className={css.filters_center}>
+                <CustomSelect
+                  options={categoryOptions}
+                  value={category}
+                  onChange={(value) => {
+                    setCategory(value);
+                    setPage(1);
+                  }}
+                  placeholder="Category"
+                />
+                <CustomSelect
+                  options={genderOptions}
+                  value={gender}
+                  onChange={(value) => {
+                    setGender(value);
+                    setPage(1);
+                  }}
+                  placeholder="Gender"
+                />
+              </div>
               <CustomSelect
-                options={categoryOptions}
-                value={category}
+                options={speciesOptions}
+                value={species}
                 onChange={(value) => {
-                  setCategory(value);
+                  setSpecies(value);
                   setPage(1);
                 }}
-                placeholder="Category"
+                placeholder="By type"
               />
-              <CustomSelect
-                options={genderOptions}
-                value={gender}
-                onChange={(value) => {
-                  setGender(value);
-                  setPage(1);
-                }}
-                placeholder="Gender"
-              />
+              <LocationSearch value={location} onApply={handleLocationChange} />
             </div>
-            <CustomSelect
-              options={speciesOptions}
-              value={species}
-              onChange={(value) => {
-                setSpecies(value);
-                setPage(1);
-              }}
-              placeholder="By type"
-            />
-            <LocationSearch value={location} onApply={handleLocationChange} />
+            <FilterButtons value={sortFilter} onChange={handleSortChange} />
           </div>
         </section>
         <section className={css.notices_section}>

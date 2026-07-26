@@ -11,14 +11,10 @@ export const customStyles = (
     paddingRight: "60px",
     boxShadow: "none",
     borderColor:
-      state.isFocused || hasValue
-        ? "var(--secondary-color)"
-        : "rgba(38, 38, 38, 0.15)",
+      state.isFocused || hasValue ? "var(--secondary-color)" : "transparent",
     "&:hover": {
       borderColor:
-        state.isFocused || hasValue
-          ? "var(--secondary-color)"
-          : "rgba(38, 38, 38, 0.15)",
+        state.isFocused || hasValue ? "var(--secondary-color)" : "transparent",
     },
     cursor: "pointer",
     transition: "all 300ms ease-in-out",

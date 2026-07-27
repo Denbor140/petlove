@@ -1,26 +1,18 @@
-import { useAuthStore } from "@/lib/store/authStore";
+"ise client";
+
 import css from "./LogOutBtn.module.css";
-import { useMutation } from "@tanstack/react-query";
-import { signOut } from "@/lib/api/clientApi";
+import { useModal } from "../ModalProvider/ModalProvider";
 
 export default function LogOutBtn() {
-  const logout = useAuthStore((state) => state.logout);
-
-  const mutation = useMutation({
-    mutationFn: () => signOut(),
-    onSuccess: () => logout(),
-    onError: () => {
-      logout();
-    },
-  });
-
-  const handleLogOut = () => {
-    mutation.mutate();
-  };
+  const { openModal } = useModal();
 
   return (
-    <button type="button" className={css.logout_btn} onClick={handleLogOut}>
-      {mutation.isPending ? "Logging out..." : "Log out"}
+    <button
+      type="button"
+      className={css.logout_btn}
+      onClick={() => openModal("leaving")}
+    >
+      Log out
     </button>
   );
 }

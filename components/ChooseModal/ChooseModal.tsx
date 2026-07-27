@@ -6,6 +6,7 @@ import { ModalMode } from "../ModalProvider/ModalProvider";
 import ModalAttention from "../ModalAttention/ModalAttention";
 import ModalNotice from "../ModalNotice/ModalNotice";
 import { Notice } from "@/types/notice";
+import ModalApproveAction from "../ModalApproveAction/ModalApproveAction";
 
 interface ChooseModalProps {
   notice?: Notice;
@@ -29,6 +30,8 @@ export default function ChooseModal({
           {mode === "pet" && notice && (
             <ModalNotice notice={notice} onClose={close} />
           )}
+
+          {mode === "leaving" && <ModalApproveAction onClose={close} />}
         </>
       )}
     </Modal>

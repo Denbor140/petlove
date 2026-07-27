@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
+import { ModalProvider } from "@/components/ModalProvider/ModalProvider";
 
 const manrope = Manrope({
   variable: "--font-primary",
@@ -27,8 +28,10 @@ export default function RootLayout({
       <body>
         <TanStackProvider>
           <AuthProvider>
-            <Header />
-            {children}
+            <ModalProvider>
+              <Header />
+              {children}
+            </ModalProvider>
           </AuthProvider>
         </TanStackProvider>
       </body>

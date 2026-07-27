@@ -1,0 +1,143 @@
+.close_btn {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.close_icon {
+  stroke-width: 2px;
+  stroke: currentColor;
+}
+
+.notice_img_container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.notice_category {
+  display: block;
+  position: absolute;
+  border-radius: 30px;
+  min-width: 48px;
+  height: 32px;
+  background-color: var(--tertiary-color);
+  color: var(--secondary-color);
+  padding: 8px 14px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+}
+
+.notice_img {
+  border-radius: 100px;
+}
+
+.notices_title_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.notices_title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.notices_popular_container {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.star_filled {
+  fill: #ffc531;
+}
+
+.star_empty {
+  fill: rgba(38, 38, 38, 0.05);
+}
+
+.notices_popular {
+  line-height: 1.29;
+}
+
+.notices_bio_container {
+  display: flex;
+  gap: 27px;
+  margin-bottom: 16px;
+}
+
+.notice_name,
+.notice_birthday,
+.notice_sex,
+.notice_species {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+}
+
+.notice_name > span,
+.notice_birthday > span,
+.notice_sex > span,
+.notice_species > span {
+  display: block;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: rgba(38, 38, 38, 0.5);
+  margin-bottom: 4px;
+}
+
+.notice_comment {
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.notice_price {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.notice_btn_container {
+  display: flex;
+  gap: 10px;
+}
+
+.add_favorite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 30px;
+  padding: 12px 31px;
+  width: 135px;
+  height: 44px;
+  background-color: var(--bg-btn-primary);
+  font-size: 16px;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.favotire_icon {
+  stroke-width: 1.5px;
+  stroke: #fff;
+  fill: transparent;
+}
+
+.contact {
+  border-radius: 30px;
+  padding: 12px 37px;
+  width: 134px;
+  height: 44px;
+  background-color: var(--bg-btn-secondary);
+  font-size: 16px;
+  letter-spacing: -0.03em;
+  color: var(--secondary-color);
+}

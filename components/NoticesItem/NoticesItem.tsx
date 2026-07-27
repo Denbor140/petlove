@@ -1,12 +1,29 @@
+"use client";
+
 import css from "./NoticesItem.module.css";
 import { Notice } from "@/types/notice";
 import Image from "next/image";
+import LearnMoreButton from "./LearnMoreButton";
+import FavoritesButton from "./FavoritesButton";
+import { useAuthStore } from "@/lib/store/authStore";
+import { useMemo } from "react";
 
 interface NoticesItemProps {
   notices: Notice[];
+  onToggleFavorite?: (notice: Notice) => void;
 }
 
-export default function NoticesItem({ notices }: NoticesItemProps) {
+export default function NoticesItem({
+  notices,
+  onToggleFavorite,
+}: NoticesItemProps) {
+  const user = useAuthStore((state) => state.user);
+
+  const favoriteNotice = useMemo(
+    () => new Set(user?.noticesFavorites.map((n) => n._id) ?? []),
+    [user?.noticesFavorites],
+  );
+
   return (
     <ul className={css.notices_list}>
       {notices.map((notice) => (
@@ -27,7 +44,7 @@ export default function NoticesItem({ notices }: NoticesItemProps) {
                   <h2 className={css.notices_title}>{notice.title}</h2>
                   <div className={css.notices_popular_container}>
                     {" "}
-                    <svg width={16} height={16}>
+                    <svg width={16} height={16} className={css.star_icon}>
                       <use href="/icons.svg#icon-star"></use>
                     </svg>
                     <span className={css.notices_popular}>
@@ -71,14 +88,12 @@ export default function NoticesItem({ notices }: NoticesItemProps) {
                 ""
               )}
               <div className={css.notice_btn_container}>
-                <button type="button" className={css.notice_more_btn}>
-                  Learn more
-                </button>
-                <button type="button" className={css.notice_favorites_btn}>
-                  <svg width={18} height={18}>
-                    <use href="/icons.svg#icon-heart"></use>
-                  </svg>
-                </button>
+                <LearnMoreButton notice={notice} />
+                <FavoritesButton
+                  notice={notice}
+                  onToggleFavorite={onToggleFavorite}
+                  isFavoriteInitial={favoriteNotice.has(notice._id)}
+                />
               </div>
             </div>
           </div>

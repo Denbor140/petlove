@@ -1,0 +1,51 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0 20px;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.backdrop_open {
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .backdrop {
+    padding: 0;
+  }
+}
+
+.modal {
+  background-color: #fbfbfb;
+  border-radius: 30px;
+  padding: 40px 20px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  max-width: 480px;
+  max-height: 90vh;
+  width: 100%;
+  transition: all 250ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    padding: 60px;
+  }
+}
+
+.modal::-webkit-scrollbar {
+  display: none;
+}

@@ -49,6 +49,10 @@
   align-items: center;
 }
 
+.star_icon {
+  fill: #ffc531;
+}
+
 .notices_popular {
   line-height: 1.29;
 }
@@ -122,4 +126,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.notice_favorites_icon {
+  stroke-width: 1.5px;
+  stroke: var(--secondary-color);
+  fill: transparent;
+}
+
+.favorites_icon_active {
+  fill: var(--secondary-color);
 }

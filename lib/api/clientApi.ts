@@ -147,3 +147,18 @@ export const getCitiesLocations = async (): Promise<City[]> => {
   const res = await api.get<City[]>("/cities/locations");
   return res.data;
 };
+
+export const getNoticesById = async (id: string) => {
+  const res = await api.get<Notice>(`/notices/${id}`);
+  return res.data;
+};
+
+export const addNoticesToFavorites = async (id: string) => {
+  const res = await api.post(`/notices/favorites/add/${id}`);
+  return res.data;
+};
+
+export const removeNoticesFromFavorites = async (id: string) => {
+  const res = await api.delete(`/notices/favorites/remove/${id}`);
+  return res.data;
+};

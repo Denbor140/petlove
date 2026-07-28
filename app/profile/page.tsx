@@ -9,7 +9,7 @@ export default function ProfilePage() {
   const isCheckingAuth = useAuthStore((state) => state.isCheckingAuth);
 
   if (isCheckingAuth) return <p>Loading...</p>;
-  if (!user) return null;
+  if (!user) return null; // middleware мав редіректнути раніше
 
   return (
     <main>

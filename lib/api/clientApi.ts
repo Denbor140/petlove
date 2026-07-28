@@ -60,6 +60,13 @@ export interface GetNoticesResponse {
   totalPages: number;
 }
 
+interface EditUserData {
+  name: string;
+  email: string;
+  phone: string;
+  avatar: string;
+}
+
 export const register = async (data: RegisterRequest) => {
   const res = await api.post<AuthResponse>("/users/signup", data);
   return res.data;
@@ -160,5 +167,10 @@ export const addNoticesToFavorites = async (id: string) => {
 
 export const removeNoticesFromFavorites = async (id: string) => {
   const res = await api.delete(`/notices/favorites/remove/${id}`);
+  return res.data;
+};
+
+export const editUser = async (data: EditUserData): Promise<UserFull> => {
+  const res = await api.patch<UserFull>("/users/current/edit", data);
   return res.data;
 };

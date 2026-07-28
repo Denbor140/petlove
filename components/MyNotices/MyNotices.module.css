@@ -22,3 +22,15 @@
   background-color: var(--bg-btn-primary);
   color: #fff;
 }
+
+.favorite_empty_title {
+  margin-top: 80px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.favorite_empty_title > span {
+  font-weight: 700;
+  color: var(--secondary-color);
+}

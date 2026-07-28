@@ -40,9 +40,18 @@ export default function MyNotices({
           Viewed
         </button>
       </div>
-      {activeTab === "favorite" ? (
-        <NoticesList notices={favoriteNotices} tab={activeTab} />
-      ) : (
+      {activeTab === "favorite" &&
+        (favoriteNotices.length === 0 ? (
+          <p className={css.favorite_empty_title}>
+            Oops, <span>looks like there aren&apos;t any furries</span> on our
+            adorable page yet. Do not worry! View your pets on the &quot;find
+            your favorite pet&quot; page and add them to your favorites.
+          </p>
+        ) : (
+          <NoticesList notices={favoriteNotices} tab={activeTab} />
+        ))}
+
+      {activeTab === "viewed" && (
         <NoticesList notices={viewedNotices} tab={activeTab} />
       )}
     </section>

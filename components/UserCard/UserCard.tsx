@@ -13,7 +13,15 @@ export default function UserCard({ user }: UserCardProps) {
   return (
     <section className={css.user_card_section}>
       <div className={css.user_card_container}>
-        <EditUserBtn />
+        <div className={css.user_name_container}>
+          <p className={css.user_name}>
+            {user.name}
+            <svg width={18} height={18} fill="#fff" stroke="#fff">
+              <use href="/icons.svg#icon-user"></use>
+            </svg>
+          </p>
+          <EditUserBtn user={user} />
+        </div>
         <UserBlock user={user} />
         <PetsBlock pets={user.pets} />
         <LogOutBtn />

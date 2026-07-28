@@ -37,7 +37,7 @@ export default function ChooseModal({
 
           {mode === "leaving" && <ModalApproveAction onClose={close} />}
 
-          {mode === "user" && user && <ModalEditUser onClose={close} />}
+          {mode === "user" && <ModalEditUser user={user} onClose={close} />}
         </>
       )}
     </Modal>

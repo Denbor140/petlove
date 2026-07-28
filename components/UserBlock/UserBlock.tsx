@@ -26,7 +26,7 @@ export default function UserBlock({ user }: UserBlockProps) {
       ) : (
         <div className={css.user_avatar_container}>
           <div className={css.user_avatar_default}>
-            <svg width={40} height={40}>
+            <svg width={40} height={40} fill="#f6b83d" stroke="#f6b83d">
               <use href="/icons.svg#icon-user"></use>
             </svg>
           </div>

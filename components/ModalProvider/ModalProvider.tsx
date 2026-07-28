@@ -22,7 +22,7 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<ModalMode | null>(null);
   const [redirectPath, setRedirectPath] = useState<string | null>(null);
   const [selectedNotice, setSelectedNotice] = useState<Notice | null>(null);
-  const [user, setUser] = useState<UserFull | null>(null);
+  const [selectUser, setSelectUser] = useState<UserFull | null>(null);
 
   const openModal = (
     mode: ModalMode,
@@ -30,7 +30,7 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
   ) => {
     setRedirectPath(options?.redirect ?? null);
     setSelectedNotice(options?.notice ?? null);
-    setUser(options?.user ?? null);
+    setSelectUser(options?.user ?? null);
     setMode(mode);
   };
 
@@ -38,7 +38,7 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
     setMode(null);
     setRedirectPath(null);
     setSelectedNotice(null);
-    setUser(null);
+    setSelectUser(null);
   };
 
   return (
@@ -50,7 +50,7 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
           initialMode={mode}
           onClose={closeModal}
           notice={selectedNotice ?? undefined}
-          user={user ?? undefined}
+          user={selectUser ?? undefined}
         />
       )}
     </ModalContext.Provider>

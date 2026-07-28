@@ -16,7 +16,7 @@ export default function UserBar({ user }: UserBarProps) {
         <Image src={user.avatar} width={40} height={40} alt={user.name} />
       ) : (
         <div className={css.user_avatar_default}>
-          <svg width={20} height={20}>
+          <svg width={20} height={20} fill="#f6b83d" stroke="#f6b83d">
             <use href="/icons.svg#icon-user"></use>
           </svg>
         </div>

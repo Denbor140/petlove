@@ -7,14 +7,17 @@ import LearnMoreButton from "./LearnMoreButton";
 import FavoritesButton from "./FavoritesButton";
 import { useAuthStore } from "@/lib/store/authStore";
 import { useMemo } from "react";
+import { Tab } from "../MyNotices/MyNotices";
 
 interface NoticesItemProps {
   notices: Notice[];
+  tab: Tab;
   onToggleFavorite?: (notice: Notice) => void;
 }
 
 export default function NoticesItem({
   notices,
+  tab,
   onToggleFavorite,
 }: NoticesItemProps) {
   const user = useAuthStore((state) => state.user);
@@ -88,12 +91,15 @@ export default function NoticesItem({
                 ""
               )}
               <div className={css.notice_btn_container}>
-                <LearnMoreButton notice={notice} />
-                <FavoritesButton
-                  notice={notice}
-                  onToggleFavorite={onToggleFavorite}
-                  isFavoriteInitial={favoriteNotice.has(notice._id)}
-                />
+                <LearnMoreButton notice={notice} tab={tab} />
+
+                {tab !== "viewed" && (
+                  <FavoritesButton
+                    notice={notice}
+                    onToggleFavorite={onToggleFavorite}
+                    isFavoriteInitial={favoriteNotice.has(notice._id)}
+                  />
+                )}
               </div>
             </div>
           </div>

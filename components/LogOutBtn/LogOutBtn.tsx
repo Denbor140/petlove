@@ -2,14 +2,16 @@
 
 import css from "./LogOutBtn.module.css";
 import { useModal } from "../ModalProvider/ModalProvider";
+import { usePathname } from "next/navigation";
 
 export default function LogOutBtn() {
   const { openModal } = useModal();
+  const pathname = usePathname();
 
   return (
     <button
       type="button"
-      className={css.logout_btn}
+      className={`${pathname === "/profile" ? css.logout_btn_profile : css.logout_btn}`}
       onClick={() => openModal("leaving")}
     >
       Log out

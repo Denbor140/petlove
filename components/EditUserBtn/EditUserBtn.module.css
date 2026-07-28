@@ -1,0 +1,7 @@
+.edit_btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: var(--bg-btn-secondary);
+}

@@ -20,6 +20,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/lib/store/authStore";
 import Title from "../Title/Title";
+import Cookies from "js-cookie";
 
 interface FormValues {
   name: string;
@@ -62,6 +63,7 @@ export default function RegistrationForm() {
     mutationFn: (data: RegisterRequest) => register(data),
     onSuccess: async (data) => {
       localStorage.setItem("token", data.token);
+      Cookies.set("token", data.token, { expires: 7, path: "/" });
       const currentUser = await getCurrentUserFull();
       setUser(currentUser);
       router.push("/");

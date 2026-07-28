@@ -16,8 +16,8 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import { getCurrentUserFull, login, LoginRequest } from "@/lib/api/clientApi";
 import { useAuthStore } from "@/lib/store/authStore";
-import { ApiError } from "@/lib/api/api";
 import Title from "../Title/Title";
+import Cookies from "js-cookie";
 
 interface FormValues {
   email: string;
@@ -48,6 +48,7 @@ export default function LoginForm() {
     mutationFn: (data: LoginRequest) => login(data),
     onSuccess: async (data) => {
       localStorage.setItem("token", data.token);
+      Cookies.set("token", data.token, { expires: 7, path: "/" });
       const currentUser = await getCurrentUserFull();
       setUser(currentUser);
       router.push("/");

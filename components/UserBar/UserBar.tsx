@@ -11,7 +11,7 @@ interface UserBarProps {
 export default function UserBar({ user }: UserBarProps) {
   const { isAuthenticated, isCheckingAuth } = useAuthStore();
   return (
-    <Link href={"/"}>
+    <Link href={"/profile"}>
       {isAuthenticated && !isCheckingAuth && user.avatar ? (
         <Image src={user.avatar} width={40} height={40} alt={user.name} />
       ) : (

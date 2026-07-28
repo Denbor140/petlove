@@ -1,6 +1,7 @@
 import { Notice } from "@/types/notice";
 import { UserFull } from "@/types/user";
 import { create } from "zustand";
+import Cookies from "js-cookie";
 
 interface AuthStore {
   isAuthenticated: boolean;
@@ -21,6 +22,7 @@ export const useAuthStore = create<AuthStore>()((set) => ({
     set(() => ({ user, isAuthenticated: true, isCheckingAuth: false })),
   logout: () => {
     localStorage.removeItem("token");
+    Cookies.remove("token", { path: "/" });
     set(() => ({ user: null, isAuthenticated: false, isCheckingAuth: false }));
   },
   finishChecking: () => set(() => ({ isCheckingAuth: false })),

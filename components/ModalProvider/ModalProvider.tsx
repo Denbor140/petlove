@@ -3,13 +3,14 @@
 import { createContext, useContext, useState } from "react";
 import ChooseModal from "@/components/ChooseModal/ChooseModal";
 import { Notice } from "@/types/notice";
+import { UserFull } from "@/types/user";
 
-export type ModalMode = "pet" | "attention" | "congrats" | "leaving";
+export type ModalMode = "user" | "pet" | "attention" | "congrats" | "leaving";
 
 interface ModalContextType {
   openModal: (
     mode: ModalMode,
-    options?: { redirect?: string; notice?: Notice },
+    options?: { redirect?: string; notice?: Notice; user?: UserFull },
   ) => void;
   closeModal: () => void;
   redirectPath: string | null;
@@ -21,13 +22,15 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<ModalMode | null>(null);
   const [redirectPath, setRedirectPath] = useState<string | null>(null);
   const [selectedNotice, setSelectedNotice] = useState<Notice | null>(null);
+  const [user, setUser] = useState<UserFull | null>(null);
 
   const openModal = (
     mode: ModalMode,
-    options?: { redirect?: string; notice?: Notice },
+    options?: { redirect?: string; notice?: Notice; user?: UserFull },
   ) => {
     setRedirectPath(options?.redirect ?? null);
     setSelectedNotice(options?.notice ?? null);
+    setUser(options?.user ?? null);
     setMode(mode);
   };
 
@@ -35,6 +38,7 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
     setMode(null);
     setRedirectPath(null);
     setSelectedNotice(null);
+    setUser(null);
   };
 
   return (
@@ -46,6 +50,7 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
           initialMode={mode}
           onClose={closeModal}
           notice={selectedNotice ?? undefined}
+          user={user ?? undefined}
         />
       )}
     </ModalContext.Provider>

@@ -1,0 +1,24 @@
+.my_notices_btn {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.favorite_btn,
+.viewed_btn {
+  border-radius: 30px;
+  padding: 12px;
+  min-width: 123px;
+  height: 42px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  background-color: #fff;
+  transition:
+    color 300ms ease-in-out,
+    background-color 300ms ease-in-out;
+}
+
+.active_btn {
+  background-color: var(--bg-btn-primary);
+  color: #fff;
+}

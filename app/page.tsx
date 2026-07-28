@@ -12,6 +12,7 @@ export default function Home() {
         className={css.hero_img}
         width={335}
         height={402}
+        loading="eager"
       />
     </div>
   );

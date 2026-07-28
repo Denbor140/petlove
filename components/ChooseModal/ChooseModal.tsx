@@ -7,15 +7,19 @@ import ModalAttention from "../ModalAttention/ModalAttention";
 import ModalNotice from "../ModalNotice/ModalNotice";
 import { Notice } from "@/types/notice";
 import ModalApproveAction from "../ModalApproveAction/ModalApproveAction";
+import { UserFull } from "@/types/user";
+import ModalEditUser from "../ModalEditUser/ModalEditUser";
 
 interface ChooseModalProps {
   notice?: Notice;
+  user?: UserFull;
   initialMode: ModalMode;
   onClose: () => void;
 }
 
 export default function ChooseModal({
   notice,
+  user,
   initialMode,
   onClose,
 }: ChooseModalProps) {
@@ -32,6 +36,8 @@ export default function ChooseModal({
           )}
 
           {mode === "leaving" && <ModalApproveAction onClose={close} />}
+
+          {mode === "user" && user && <ModalEditUser onClose={close} />}
         </>
       )}
     </Modal>

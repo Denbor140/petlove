@@ -118,6 +118,10 @@
   letter-spacing: -0.03em;
 }
 
+.more_btn_viewed {
+  width: 100%;
+}
+
 .notice_favorites_btn {
   background-color: var(--bg-btn-secondary);
   border-radius: 30px;

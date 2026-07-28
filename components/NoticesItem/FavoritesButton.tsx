@@ -8,6 +8,7 @@ import {
   addNoticesToFavorites,
   removeNoticesFromFavorites,
 } from "@/lib/api/clientApi";
+import { usePathname } from "next/navigation";
 
 interface FavoritesButtonProps {
   notice: Notice;
@@ -25,6 +26,7 @@ export default function FavoritesButton({
   const addFavorite = useAuthStore((state) => state.addFavorite);
   const removeFavorite = useAuthStore((state) => state.removeFavorite);
   const isFavorite = isFavoriteInitial;
+  const pathname = usePathname();
 
   const handleClick = async () => {
     if (!isAuthenticated) {
@@ -49,15 +51,21 @@ export default function FavoritesButton({
       className={css.notice_favorites_btn}
       onClick={handleClick}
     >
-      <svg
-        width={18}
-        height={18}
-        className={`${css.notice_favorites_icon} ${
-          isFavorite ? css.favorites_icon_active : ""
-        }`}
-      >
-        <use href="/icons.svg#icon-heart"></use>
-      </svg>
+      {pathname === "/profile" ? (
+        <svg width={18} height={18}>
+          <use href="/icons.svg#icon-trash"></use>
+        </svg>
+      ) : (
+        <svg
+          width={18}
+          height={18}
+          className={`${css.notice_favorites_icon} ${
+            isFavorite ? css.favorites_icon_active : ""
+          }`}
+        >
+          <use href="/icons.svg#icon-heart"></use>
+        </svg>
+      )}
     </button>
   );
 }

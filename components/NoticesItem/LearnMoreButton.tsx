@@ -4,12 +4,14 @@ import css from "./NoticesItem.module.css";
 import { Notice } from "@/types/notice";
 import { getNoticesById } from "@/lib/api/clientApi";
 import { useMutation } from "@tanstack/react-query";
+import { Tab } from "../MyNotices/MyNotices";
 
 interface LearnMoreButtonProps {
   notice: Notice;
+  tab: Tab;
 }
 
-export default function LearnMoreButton({ notice }: LearnMoreButtonProps) {
+export default function LearnMoreButton({ notice, tab }: LearnMoreButtonProps) {
   const { openModal } = useModal();
   const { isAuthenticated } = useAuthStore();
 
@@ -32,7 +34,7 @@ export default function LearnMoreButton({ notice }: LearnMoreButtonProps) {
   return (
     <button
       type="button"
-      className={css.notice_more_btn}
+      className={`${css.notice_more_btn} ${tab === "viewed" ? css.more_btn_viewed : ""}`}
       onClick={handleClick}
       disabled={mutation.isPending}
     >

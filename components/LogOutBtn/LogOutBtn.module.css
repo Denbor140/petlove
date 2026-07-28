@@ -1,12 +1,21 @@
-.logout_btn {
+.logout_btn,
+.logout_btn_profile {
   border-radius: 30px;
-  padding: 12px 60px;
-  width: 178px;
-  height: 42px;
   background-color: var(--tertiary-color);
   font-weight: 700;
   line-height: 1.29;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--secondary-color);
+  height: 42px;
+}
+
+.logout_btn_profile {
+  width: 114px;
+  padding: 12px 28px;
+}
+
+.logout_btn {
+  padding: 12px 60px;
+  width: 178px;
 }

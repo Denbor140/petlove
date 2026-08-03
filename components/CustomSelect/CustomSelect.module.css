@@ -59,6 +59,10 @@
   height: 100%;
 }
 
+.dropdown_list_pet {
+  max-height: 78px;
+}
+
 .select_option {
   line-height: 1.29;
   letter-spacing: -0.03em;

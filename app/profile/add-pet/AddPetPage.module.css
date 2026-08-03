@@ -1,0 +1,27 @@
+.add_pet_img_container {
+  position: relative;
+  background-color: var(--secondary-color);
+  width: 335px;
+  height: 213px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.add_pet_img {
+  position: relative;
+  height: 248px;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%);
+  object-fit: none;
+}
+
+.rectangle_icon {
+  position: absolute;
+  top: -50px;
+  width: 332px;
+  height: 414px;
+  left: 13px;
+  pointer-events: none;
+}

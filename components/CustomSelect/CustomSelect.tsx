@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import css from "./CustomSelect.module.css";
+import { usePathname } from "next/navigation";
 
 export interface SelectOption {
   label: string;
@@ -22,6 +23,7 @@ export default function CustomSelect({
   placeholder,
 }: CustomSelectProps) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   const selectedOption = options.find(
     (option) => option.value === value && value !== "",
@@ -49,7 +51,9 @@ export default function CustomSelect({
           open ? css.dropdown_container_open : ""
         }`}
       >
-        <ul className={css.dropdown_list}>
+        <ul
+          className={`${css.dropdown_list} ${pathname === "/profile/add-pet" ? css.dropdown_list_pet : ""}`}
+        >
           {options.map((option) => (
             <li
               key={option.value}

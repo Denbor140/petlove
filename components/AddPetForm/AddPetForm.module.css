@@ -1,0 +1,211 @@
+.form_gender_container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.gender_btn {
+  border-radius: 30px;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  transition: background-color 300ms ease-in-out;
+}
+
+.male {
+  background-color: var(--male-btn-bg);
+}
+
+.male_active {
+  background-color: var(--male-bg-active);
+}
+
+.female {
+  background-color: var(--female-btn-bg);
+}
+
+.female_active {
+  background-color: var(--female-bg-active);
+}
+
+.multiple {
+  background-color: var(--multiple-btn-bg);
+}
+
+.multiple_active {
+  background-color: var(--multiple-bg-active);
+}
+
+.male_icon {
+  stroke: #54adff;
+  fill: transparent;
+  transition:
+    stroke 300 ms ease-in-out,
+    fill 300ms ease-in-out;
+}
+
+.female_icon {
+  fill: transparent;
+  stroke: #f43f5e;
+  transition:
+    stroke 300 ms ease-in-out,
+    fill 300ms ease-in-out;
+}
+
+.multiple_icon {
+  fill: #f6b83d;
+  transition:
+    stroke 300 ms ease-in-out,
+    fill 300ms ease-in-out;
+}
+
+.icon_active {
+  stroke: #fff;
+  fill: transparent;
+}
+
+.pet_form_title {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.pet_form_title > span {
+  font-weight: 700;
+  line-height: 1.29;
+  color: rgba(43, 43, 42, 0.4);
+}
+
+.pet_avatar,
+.pet_avatar_default {
+  border-radius: 100px;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 16px auto;
+}
+
+.pet_avatar {
+  object-fit: cover;
+  object-position: top;
+}
+
+.pet_avatar_default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--tertiary-color);
+}
+
+.form_input_img {
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  padding: 9px 20px 9px 10px;
+  width: 170px;
+  height: 36px;
+}
+
+.upload_btn {
+  border-radius: 30px;
+  padding: 10px;
+  width: 117px;
+  height: 36px;
+  background-color: var(--bg-btn-secondary);
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.add_pet_form_container {
+  border-radius: 30px;
+  background-color: #fff;
+  padding: 28px 20px 20px 20px;
+}
+
+.form_image_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form_image_container,
+.form_title_container,
+.form_name_container {
+  margin-bottom: 10px;
+}
+
+.form_input {
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  padding: 12px;
+  width: 100%;
+  height: 42px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  transition: border-color 300ms ease-in-out;
+}
+
+.form_input:focus {
+  border-color: var(--secondary-color);
+}
+
+.form_input::placeholder,
+.form_input_img::placeholder,
+.species_select {
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: rgba(38, 38, 38, 0.5);
+}
+
+.species_select {
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+}
+
+.form_bs_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 31px;
+}
+
+.error {
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #ef2447;
+}
+
+.input_error {
+  border-color: var(--input-border-error);
+}
+
+.input_success {
+  border-color: var(--secondary-color);
+}
+
+.form_btn_container {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.form_back_btn,
+.form_submit_btn {
+  border-radius: 30px;
+  width: 100px;
+  height: 42px;
+  font-weight: 700;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+}
+
+.form_back_btn {
+  background-color: rgba(38, 38, 38, 0.05);
+}
+
+.form_submit_btn {
+  background-color: var(--bg-btn-primary);
+  color: #fff;
+}

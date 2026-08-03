@@ -67,6 +67,15 @@ interface EditUserData {
   avatar: string;
 }
 
+interface AddPetData {
+  title: string;
+  name: string;
+  imgURL: string;
+  species: string;
+  birthday: string;
+  sex: string;
+}
+
 export const register = async (data: RegisterRequest) => {
   const res = await api.post<AuthResponse>("/users/signup", data);
   return res.data;
@@ -172,5 +181,10 @@ export const removeNoticesFromFavorites = async (id: string) => {
 
 export const editUser = async (data: EditUserData): Promise<UserFull> => {
   const res = await api.patch<UserFull>("/users/current/edit", data);
+  return res.data;
+};
+
+export const addPet = async (data: AddPetData): Promise<UserFull> => {
+  const res = await api.post<UserFull>("/users/current/pets/add", data);
   return res.data;
 };

@@ -1,3 +1,4 @@
+import css from "./PetsList.module.css";
 import { Pet } from "@/types/pet";
 import PetsItem from "../PetsItem/PetsItem";
 
@@ -7,7 +8,7 @@ interface PetsListProps {
 
 export default function PetsList({ pets }: PetsListProps) {
   return (
-    <ul>
+    <ul className={css.pets_list}>
       <PetsItem pets={pets} />
     </ul>
   );

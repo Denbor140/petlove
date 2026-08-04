@@ -12,6 +12,7 @@ interface AuthStore {
   finishChecking: () => void;
   addFavorite: (notice: Notice) => void;
   removeFavorite: (noticeId: string) => void;
+  removePet: (petId: string) => void;
 }
 
 export const useAuthStore = create<AuthStore>()((set) => ({
@@ -43,6 +44,15 @@ export const useAuthStore = create<AuthStore>()((set) => ({
             noticesFavorites: state.user.noticesFavorites.filter(
               (n) => n._id !== noticeId,
             ),
+          }
+        : state.user,
+    })),
+  removePet: (petId: string) =>
+    set((state) => ({
+      user: state.user
+        ? {
+            ...state.user,
+            pets: state.user.pets.filter((pet) => pet._id !== petId),
           }
         : state.user,
     })),

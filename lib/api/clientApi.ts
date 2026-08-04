@@ -188,3 +188,8 @@ export const addPet = async (data: AddPetData): Promise<UserFull> => {
   const res = await api.post<UserFull>("/users/current/pets/add", data);
   return res.data;
 };
+
+export const deletePet = async (id: string) => {
+  const res = await api.delete(`/users/current/pets/remove/${id}`);
+  return res.data;
+};

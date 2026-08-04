@@ -18,6 +18,7 @@ import CustomSelect from "../CustomSelect/CustomSelect";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { addPet, getNoticesSpecies } from "@/lib/api/clientApi";
 import { useAuthStore } from "@/lib/store/authStore";
+import { uploadImageToCloudinary } from "@/lib/api/uploadImage";
 
 interface FormValues {
   title: string;
@@ -76,8 +77,8 @@ export default function AddPetForm() {
   const router = useRouter();
   const setUser = useAuthStore((state) => state.setUser);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [petAvatarPreview, setPetAvatarPreview] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
   const mutation = useMutation({
     mutationFn: addPet,
@@ -93,36 +94,32 @@ export default function AddPetForm() {
     refetchOnWindowFocus: false,
   });
 
-  const handleFileChange = (
+  const handleFileChange = async (
     e: React.ChangeEvent<HTMLInputElement>,
     setFieldValue: (field: string, value: string) => void,
   ) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    setAvatarFile(file);
-    const previewUrl = URL.createObjectURL(file);
-    setPetAvatarPreview(previewUrl);
-    setFieldValue("imgURL", previewUrl);
+    setIsUploading(true);
+    try {
+      const imageUrl = await uploadImageToCloudinary(file);
+      setPetAvatarPreview(imageUrl);
+      setFieldValue("imgURL", imageUrl);
+    } catch (error) {
+      console.error("Upload failed:", error);
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   const handleSubmit = (
     values: FormValues,
     actions: FormikHelpers<FormValues>,
   ) => {
-    const formData = new FormData();
-    formData.append("title", values.title);
-    formData.append("name", values.name);
-    formData.append("species", values.species);
-    formData.append("birthday", values.birthday);
-    formData.append("sex", values.sex);
-    if (avatarFile) {
-      formData.append("imgURL", avatarFile);
-    }
-
-    // mutation.mutate(, {
-    //   onSettled: () => actions.setSubmitting(false),
-    // });
+    mutation.mutate(values, {
+      onSettled: () => actions.setSubmitting(false),
+    });
   };
 
   return (
@@ -208,8 +205,9 @@ export default function AddPetForm() {
                 type="button"
                 className={css.upload_btn}
                 onClick={() => fileInputRef.current?.click()}
+                disabled={isUploading}
               >
-                Upload photo
+                {isUploading ? "Uploading..." : "Upload photo"}
                 <svg width={18} height={18}>
                   <use href="/icons.svg#icon-upload"></use>
                 </svg>

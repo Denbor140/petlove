@@ -1,0 +1,66 @@
+.pet_item {
+  position: relative;
+  border: 1px solid rgba(38, 38, 38, 0.1);
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+}
+
+.pet_img {
+  border-radius: 100px;
+  width: 66px;
+  height: 66px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.pet_title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  margin-bottom: 8px;
+}
+
+.pet_info {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 173px;
+}
+
+.pet_name,
+.pet_birthday,
+.pet_sex,
+.pet_species {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+}
+
+.pet_name > span,
+.pet_birthday > span,
+.pet_sex > span,
+.pet_species > span {
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: rgba(38, 38, 38, 0.5);
+}
+
+.pet_delete_btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--bg-btn-secondary);
+}

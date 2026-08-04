@@ -2,17 +2,32 @@ import Image from "next/image";
 import css from "./ModalNotice.module.css";
 import { Notice } from "@/types/notice";
 import Link from "next/link";
+import ToogleFavoritesButton from "./ToogleFavoritesButton";
+import { useMemo } from "react";
+import { useAuthStore } from "@/lib/store/authStore";
 
 interface ModalNoticeProps {
   notice: Notice;
   onClose: () => void;
+  onToggleFavorite?: (notice: Notice) => void;
 }
 
-export default function ModalNotice({ notice, onClose }: ModalNoticeProps) {
+export default function ModalNotice({
+  notice,
+  onToggleFavorite,
+  onClose,
+}: ModalNoticeProps) {
+  const user = useAuthStore((state) => state.user);
+
   const STARS_COUNT = 5;
   const filledStars = Math.min(
     Math.floor(notice.popularity / 100),
     STARS_COUNT,
+  );
+
+  const favoriteNotice = useMemo(
+    () => new Set(user?.noticesFavorites.map((n) => n._id) ?? []),
+    [user?.noticesFavorites],
   );
 
   return (
@@ -78,12 +93,11 @@ export default function ModalNotice({ notice, onClose }: ModalNoticeProps) {
       <p className={css.notice_comment}>{notice.comment}</p>
       {notice.price ? <p className={css.notice_price}>${notice.price}</p> : ""}
       <div className={css.notice_btn_container}>
-        <button type="button" className={css.add_favorite}>
-          Add to
-          <svg width={18} height={18} className={css.favotire_icon}>
-            <use href="/icons.svg#icon-heart"></use>
-          </svg>
-        </button>
+        <ToogleFavoritesButton
+          notice={notice}
+          onToggleFavorite={onToggleFavorite}
+          isFavoriteInitial={favoriteNotice.has(notice._id)}
+        />
         <Link href={"/friends"} className={css.contact} onClick={onClose}>
           Contact
         </Link>

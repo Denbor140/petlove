@@ -114,9 +114,9 @@
 .add_favorite {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 8px;
   border-radius: 30px;
-  padding: 12px 31px;
   width: 135px;
   height: 44px;
   background-color: var(--bg-btn-primary);

@@ -170,6 +170,19 @@
   margin-bottom: 31px;
 }
 
+.birthday_input_container {
+  position: relative;
+}
+
+.calendar_img {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  stroke: #262626;
+  fill: transparent;
+}
+
 .error {
   font-size: 10px;
   line-height: 1.2;

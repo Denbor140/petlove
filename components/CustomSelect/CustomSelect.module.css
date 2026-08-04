@@ -14,6 +14,10 @@
   letter-spacing: -0.03em;
 }
 
+.value_selected {
+  color: initial;
+}
+
 .select_icon {
   stroke-width: 1.5px;
   fill: #fff;

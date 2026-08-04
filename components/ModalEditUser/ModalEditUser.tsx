@@ -14,6 +14,7 @@ import { UserFull } from "@/types/user";
 import { useRef, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { editUser } from "@/lib/api/clientApi";
+import { uploadImageToCloudinary } from "@/lib/api/uploadImage";
 
 interface ModalEditUserProps {
   user?: UserFull;
@@ -24,6 +25,7 @@ interface FormValues {
   name: string;
   email: string;
   phone: string;
+  avatar: string;
 }
 
 const editUserFormSchema = Yup.object().shape({
@@ -42,9 +44,8 @@ const editUserFormSchema = Yup.object().shape({
 export default function ModalEditUser({ user, onClose }: ModalEditUserProps) {
   const setUser = useAuthStore((state) => state.setUser);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [avatarPreview, setAvatarPreview] = useState(user?.avatar ?? "");
+  const [isUploading, setIsUploading] = useState(false);
 
   const mutation = useMutation({
     mutationFn: editUser,
@@ -62,22 +63,34 @@ export default function ModalEditUser({ user, onClose }: ModalEditUserProps) {
     name: user.name ?? "",
     email: user.email ?? "",
     phone: user.phone ?? "",
+    avatar: user.avatar ?? "",
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+    setFieldValue: (field: string, value: string) => void,
+  ) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    setAvatarFile(file);
-    setAvatarPreview(URL.createObjectURL(file));
+    setIsUploading(true);
+    try {
+      const imageUrl = await uploadImageToCloudinary(file);
+      setAvatarPreview(imageUrl);
+      setFieldValue("avatar", imageUrl);
+    } catch (error) {
+      console.error("Upload failed:", error);
+    } finally {
+      setIsUploading(false);
+    }
   };
 
-  const handleSubmit = (values: FormValues) => {
-    mutation.mutate({
-      name: values.name,
-      email: values.email,
-      phone: values.phone,
-      avatar: avatarPreview,
+  const handleSubmit = (
+    values: FormValues,
+    actions: FormikHelpers<FormValues>,
+  ) => {
+    mutation.mutate(values, {
+      onSettled: () => actions.setSubmitting(false),
     });
   };
 
@@ -110,94 +123,97 @@ export default function ModalEditUser({ user, onClose }: ModalEditUserProps) {
         validationSchema={editUserFormSchema}
         onSubmit={handleSubmit}
       >
-        <Form className={css.form_container}>
-          <div className={css.form_image_container}>
-            <input
-              type="text"
-              placeholder="Image URL"
-              value={avatarPreview}
-              readOnly
-              className={css.form_input_img}
-            />
-            <button
-              type="button"
-              className={css.upload_btn}
-              onClick={() => fileInputRef.current?.click()}
-            >
-              Upload photo
-              <svg width={18} height={18}>
-                <use href="/icons.svg#icon-upload"></use>
-              </svg>
+        {({ setFieldValue, dirty }) => (
+          <Form className={css.form_container}>
+            <div className={css.form_image_container}>
+              <input
+                type="text"
+                placeholder="Image URL"
+                value={avatarPreview}
+                readOnly
+                className={`${css.form_input_img} ${avatarPreview ? css.input_success : ""}`}
+              />
+              <button
+                type="button"
+                className={css.upload_btn}
+                onClick={() => fileInputRef.current?.click()}
+                disabled={isUploading}
+              >
+                {isUploading ? "Uploading..." : "Upload photo"}
+                <svg width={18} height={18}>
+                  <use href="/icons.svg#icon-upload"></use>
+                </svg>
+              </button>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/png, image/jpeg, image/webp, image/gif, image/bmp"
+                hidden
+                onChange={(e) => handleFileChange(e, setFieldValue)}
+              />
+            </div>
+            <div className={css.form_name_container}>
+              <Field name="name">
+                {({ field, meta }: FieldProps) => (
+                  <input
+                    {...field}
+                    type="text"
+                    placeholder="Name"
+                    className={`${css.form_input} ${
+                      field.value
+                        ? css.input_success
+                        : meta.touched && meta.error
+                          ? css.input_error
+                          : ""
+                    }`}
+                  />
+                )}
+              </Field>
+              <ErrorMessage
+                name="name"
+                component="span"
+                className={css.error}
+              />
+            </div>
+            <div className={css.form_email_container}>
+              <Field name="email">
+                {({ field, meta }: FieldProps) => (
+                  <input
+                    {...field}
+                    type="email"
+                    placeholder="Email"
+                    className={`${css.form_input} ${meta.touched && meta.error ? css.input_error : css.input_success}`}
+                  />
+                )}
+              </Field>
+              <ErrorMessage
+                name="email"
+                component="span"
+                className={css.error}
+              />
+            </div>
+            <div className={css.form_phone_container}>
+              <Field name="phone">
+                {({ field, meta }: FieldProps) => (
+                  <input
+                    {...field}
+                    type="text"
+                    placeholder="+380"
+                    className={`${css.form_input} ${meta.touched && meta.error ? css.input_error : css.input_success}`}
+                  />
+                )}
+              </Field>
+              <ErrorMessage
+                name="phone"
+                component="span"
+                className={css.error}
+              />
+            </div>
+            <button type="submit" className={css.form_btn} disabled={!dirty}>
+              Go to profile
             </button>
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/png, image/jpeg, image/webp, image/gif, image/bmp"
-              hidden
-              onChange={handleFileChange}
-            />
-          </div>
-          <div className={css.form_name_container}>
-            <Field name="name">
-              {({ field, meta }: FieldProps) => (
-                <input
-                  {...field}
-                  type="text"
-                  placeholder="Name"
-                  className={`${css.form_input} ${
-                    meta.touched && meta.error
-                      ? css.input_error
-                      : meta.touched && !meta.error
-                        ? css.input_success
-                        : ""
-                  }`}
-                />
-              )}
-            </Field>
-            <ErrorMessage name="name" component="span" className={css.error} />
-          </div>
-          <div className={css.form_email_container}>
-            <Field name="email">
-              {({ field, meta }: FieldProps) => (
-                <input
-                  {...field}
-                  type="email"
-                  placeholder="Email"
-                  className={`${css.form_input} ${
-                    meta.touched && meta.error
-                      ? css.input_error
-                      : meta.touched && !meta.error
-                        ? css.input_success
-                        : ""
-                  }`}
-                />
-              )}
-            </Field>
-            <ErrorMessage name="email" component="span" className={css.error} />
-          </div>
-          <div className={css.form_phone_container}>
-            <Field name="phone">
-              {({ field, meta }: FieldProps) => (
-                <input
-                  {...field}
-                  type="text"
-                  placeholder="+380"
-                  className={`${css.form_input} ${
-                    meta.touched && meta.error
-                      ? css.input_error
-                      : meta.touched && !meta.error
-                        ? css.input_success
-                        : ""
-                  }`}
-                />
-              )}
-            </Field>
-            <ErrorMessage name="phone" component="span" className={css.error} />
-          </div>
-          <button type="submit" className={css.form_btn}>
-            Go to profile
-          </button>
-        </Form>
+          </Form>
+        )}
       </Formik>
     </>
   );

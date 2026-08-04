@@ -35,7 +35,15 @@ export default function CustomSelect({
         className={css.select_value}
         onClick={() => setOpen((prev) => !prev)}
       >
-        {selectedOption?.label || placeholder}
+        <span
+          className={
+            selectedOption && pathname === "/profile/add-pet"
+              ? css.value_selected
+              : ""
+          }
+        >
+          {selectedOption?.label || placeholder}
+        </span>
 
         <svg
           width={18}

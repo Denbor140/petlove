@@ -13,7 +13,13 @@ export default function UserBar({ user }: UserBarProps) {
   return (
     <Link href={"/profile"}>
       {isAuthenticated && !isCheckingAuth && user.avatar ? (
-        <Image src={user.avatar} width={40} height={40} alt={user.name} />
+        <Image
+          src={user.avatar}
+          width={40}
+          height={40}
+          alt={user.name}
+          className={css.user_avatar}
+        />
       ) : (
         <div className={css.user_avatar_default}>
           <svg width={20} height={20} fill="#f6b83d" stroke="#f6b83d">

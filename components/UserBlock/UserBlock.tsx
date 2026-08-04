@@ -33,7 +33,7 @@ export default function UserBlock({ user }: UserBlockProps) {
           <button
             type="button"
             className={css.upload_btn}
-            onClick={() => openModal("user")}
+            onClick={() => openModal("user", { user })}
           >
             Upload photo
           </button>

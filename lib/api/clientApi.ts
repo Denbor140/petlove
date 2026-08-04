@@ -180,7 +180,13 @@ export const removeNoticesFromFavorites = async (id: string) => {
 };
 
 export const editUser = async (data: EditUserData): Promise<UserFull> => {
-  const res = await api.patch<UserFull>("/users/current/edit", data);
+  const editUserData = {
+    ...(data.name ? { name: data.name } : {}),
+    ...(data.email ? { email: data.email } : {}),
+    ...(data.phone ? { phone: data.phone } : {}),
+    ...(data.avatar ? { avatar: data.avatar } : {}),
+  };
+  const res = await api.patch<UserFull>("/users/current/edit", editUserData);
   return res.data;
 };
 

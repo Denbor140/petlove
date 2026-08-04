@@ -199,7 +199,9 @@ export default function AddPetForm() {
                 placeholder="Enter URL"
                 value={petAvatarPreview}
                 readOnly
-                className={css.form_input_img}
+                className={`${css.form_input_img} ${
+                  petAvatarPreview ? css.input_success : ""
+                }`}
               />
               <button
                 type="button"
@@ -276,22 +278,27 @@ export default function AddPetForm() {
 
             <div className={css.form_bs_container}>
               <div className={css.form_birthday_container}>
-                <Field name="birthday">
-                  {({ field, meta }: FieldProps) => (
-                    <input
-                      {...field}
-                      type="text"
-                      placeholder="00.00.0000"
-                      className={`${css.form_input} ${
-                        meta.touched && meta.error
-                          ? css.input_error
-                          : meta.touched && !meta.error
-                            ? css.input_success
-                            : ""
-                      }`}
-                    />
-                  )}
-                </Field>
+                <div className={css.birthday_input_container}>
+                  <Field name="birthday">
+                    {({ field, meta }: FieldProps) => (
+                      <input
+                        {...field}
+                        type="text"
+                        placeholder="YYYY-MM-DD"
+                        className={`${css.form_input} ${
+                          meta.touched && meta.error
+                            ? css.input_error
+                            : meta.touched && !meta.error
+                              ? css.input_success
+                              : ""
+                        }`}
+                      />
+                    )}
+                  </Field>
+                  <svg width={18} height={18} className={css.calendar_img}>
+                    <use href="/icons.svg#icon-calendar"></use>
+                  </svg>
+                </div>
                 <ErrorMessage
                   name="birthday"
                   component="span"
@@ -304,10 +311,10 @@ export default function AddPetForm() {
                   {({ field, form, meta }: FieldProps) => (
                     <div
                       className={`${css.species_select} ${
-                        meta.touched && meta.error
-                          ? css.input_error
-                          : meta.touched && !meta.error
-                            ? css.input_success
+                        field.value
+                          ? css.input_success
+                          : meta.touched && meta.error
+                            ? css.input_error
                             : ""
                       }`}
                     >

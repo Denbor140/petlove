@@ -81,6 +81,11 @@
   height: 42px;
   line-height: 1.28571;
   letter-spacing: -0.03em;
+  transition: border-color 300ms ease-in-out;
+}
+
+.form_input:focus {
+  border-color: var(--secondary-color);
 }
 
 .form_input_img {
@@ -112,5 +117,5 @@
 }
 
 .input_success {
-  border-color: var(--input-border-succes);
+  border-color: var(--secondary-color);
 }

@@ -7,6 +7,11 @@
 
 .user_avatar {
   border-radius: 100px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  object-position: top;
+  align-self: center;
 }
 
 .user_avatar_container {

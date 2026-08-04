@@ -11,15 +11,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .user_name {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 14px;
   background-color: #f6b83d;
   border-radius: 30px;
-  padding: 10px 14px;
   min-width: 80px;
   height: 38px;
   line-height: 1.29;

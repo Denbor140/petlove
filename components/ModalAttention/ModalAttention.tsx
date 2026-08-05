@@ -1,5 +1,6 @@
 import Link from "next/link";
 import css from "./ModalAttention.module.css";
+import Image from "next/image";
 
 interface ModalAttentionProps {
   onClose: () => void;
@@ -13,7 +14,15 @@ export default function ModalAttention({ onClose }: ModalAttentionProps) {
           <use href="/icons.svg#icon-close"></use>
         </svg>
       </button>
-      <div className={css.ellipses} />
+      <div className={css.ellipses}>
+        <Image
+          src={"/attention-img.png"}
+          alt="Dog"
+          width={44}
+          height={44}
+          loading="eager"
+        />
+      </div>
       <h2 className={css.title}>Attention</h2>
       <p className={css.subtitle}>
         We would like to remind you that certain functionality is available only

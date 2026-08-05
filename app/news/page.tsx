@@ -1,4 +1,5 @@
 "use client";
+import Loader from "@/components/Loader/Loader";
 import css from "./NewsPage.module.css";
 import NewsList from "@/components/NewsList/NewsList";
 import Pagination from "@/components/Pagination/Pagination";
@@ -14,7 +15,7 @@ export default function NewsPage() {
   const [page, setPage] = useState(1);
   const [searchText, setSearchText] = useState("");
 
-  const { data } = useQuery<GetNewsResponse>({
+  const { data, isLoading } = useQuery<GetNewsResponse>({
     queryKey: ["news", page, searchText],
     queryFn: () => getNews({ keyword: searchText, page, limit: LIMIT }),
     refetchOnMount: false,
@@ -26,6 +27,10 @@ export default function NewsPage() {
     setSearchText(value);
     setPage(1);
   };
+
+  if (isLoading) {
+    return <Loader isLoading={isLoading} />;
+  }
 
   return (
     <main className={css.main}>

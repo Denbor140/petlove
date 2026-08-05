@@ -23,6 +23,7 @@ import LocationSearch, {
 import FilterButtons, {
   FilterValue,
 } from "@/components/FilterButtons/FilterButtons";
+import Loader from "@/components/Loader/Loader";
 
 const LIMIT = 6;
 
@@ -48,7 +49,7 @@ export default function NoticesPage() {
     staleTime: Infinity,
   });
 
-  const { data } = useQuery<GetNoticesResponse>({
+  const { data, isLoading } = useQuery<GetNoticesResponse>({
     queryKey: [
       "notices",
       page,
@@ -113,6 +114,10 @@ export default function NoticesPage() {
       value: s,
     })) ?? []),
   ];
+
+  if (isLoading) {
+    return <Loader isLoading={isLoading} />;
+  }
 
   return (
     <main className={css.main}>

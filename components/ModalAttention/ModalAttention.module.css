@@ -4,6 +4,9 @@
   background-color: var(--tertiary-color);
   border-radius: 100%;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .close_btn {

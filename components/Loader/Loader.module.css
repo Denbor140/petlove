@@ -1,0 +1,68 @@
+.loader_container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/loader-mob-img.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .loader_container {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("/loader-tab-img.jpg");
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .loader_container {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("/loader-desk-img.jpg");
+  }
+}
+
+.progress_wrapper {
+  position: relative;
+  width: 272px;
+  height: 272px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress_ring {
+  position: absolute;
+  inset: 0;
+  animation: spin 1.2s linear infinite;
+}
+
+.progress_text {
+  position: relative;
+  font-size: 50px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .progress_text {
+    font-size: 80px;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

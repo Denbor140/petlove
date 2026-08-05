@@ -3,6 +3,7 @@ import css from "./ModalApproveAction.module.css";
 import { useMutation } from "@tanstack/react-query";
 import { signOut } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface ModalApproveActionProps {
   onClose: () => void;
@@ -35,7 +36,15 @@ export default function ModalApproveAction({
           <use href="/icons.svg#icon-close"></use>
         </svg>
       </button>
-      <div className={css.ellipses} />
+      <div className={css.ellipses}>
+        <Image
+          src={"/approve-img.png"}
+          alt="Cat"
+          width={44}
+          height={44}
+          loading="eager"
+        />
+      </div>
       <h2 className={css.title}>Already leaving?</h2>
       <div className={css.btn_container}>
         <button type="button" className={css.btn_yes} onClick={handleLogOut}>

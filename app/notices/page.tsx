@@ -115,7 +115,7 @@ export default function NoticesPage() {
   ];
 
   return (
-    <main>
+    <main className={css.main}>
       <div className="container">
         <Title title="Find your favorite pet" marginBottom="40px" />
         <section className={css.notices_filter_section}>

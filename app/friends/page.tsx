@@ -1,5 +1,6 @@
 "use client";
 
+import css from "./FriendsPage.module.css";
 import FriendsList from "@/components/FriendsList/FriendsList";
 import Title from "@/components/Title/Title";
 import { getFriends } from "@/lib/api/clientApi";
@@ -16,10 +17,12 @@ export default function FriendsPage() {
   });
 
   return (
-    <main>
+    <main className={css.main}>
       <div className="container">
         <Title title="Our friends" marginBottom="40px" />
-        <FriendsList friends={friends ?? []} />
+        <section>
+          <FriendsList friends={friends ?? []} />
+        </section>
       </div>
     </main>
   );

@@ -87,7 +87,7 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div className={css.registration_container}>
+    <section className={css.registration_container}>
       <Title title="Registration" marginBottom="12px" />
       <p className={css.subtitle}>
         Thank you for your interest in our platform.
@@ -227,6 +227,6 @@ export default function RegistrationForm() {
           Login
         </Link>
       </p>
-    </div>
+    </section>
   );
 }

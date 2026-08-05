@@ -6,7 +6,7 @@ export default function LoginPage() {
   return (
     <main className={css.main}>
       <div className="container">
-        <div className={css.login_img_container}>
+        <section className={css.login_img_container}>
           <Image
             src={"/rich.webp"}
             alt="Dog Rich"
@@ -18,7 +18,7 @@ export default function LoginPage() {
           <svg className={css.rectangle_icon}>
             <use href="/icons.svg#rectangle"></use>
           </svg>
-        </div>
+        </section>
         <LoginForm />
       </div>
     </main>

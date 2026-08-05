@@ -1,5 +1,5 @@
 "use client";
-
+import css from "./NewsPage.module.css";
 import NewsList from "@/components/NewsList/NewsList";
 import Pagination from "@/components/Pagination/Pagination";
 import SearchField from "@/components/SearchField/SearchField";
@@ -28,11 +28,13 @@ export default function NewsPage() {
   };
 
   return (
-    <main>
+    <main className={css.main}>
       <div className="container">
         <Title title="News" marginBottom="20px" />
         <SearchField keyword={searchText} onSearch={handleSearch} />
-        <NewsList news={data?.results ?? []} />
+        <section className={css.news_section}>
+          <NewsList news={data?.results ?? []} />
+        </section>
         <Pagination
           pageCount={data?.totalPages ?? 1}
           page={page}

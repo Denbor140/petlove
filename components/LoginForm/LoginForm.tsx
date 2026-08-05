@@ -71,7 +71,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className={css.login_container}>
+    <section className={css.login_container}>
       <Title title="Log in" marginBottom="12px" />
       <p className={css.subtitle}>
         Welcome! Please enter your credentials to login to the platform:
@@ -154,6 +154,6 @@ export default function LoginForm() {
           Register
         </Link>
       </p>
-    </div>
+    </section>
   );
 }

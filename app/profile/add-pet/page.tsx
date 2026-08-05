@@ -6,9 +6,9 @@ import Image from "next/image";
 
 export default function AddPetPage() {
   return (
-    <main>
+    <main className={css.main}>
       <div className="container">
-        <div className={css.add_pet_img_container}>
+        <section className={css.add_pet_img_container}>
           <Image
             src={"/add-pet-img.webp"}
             alt="Dog in add pet page"
@@ -20,7 +20,7 @@ export default function AddPetPage() {
           <svg className={css.rectangle_icon}>
             <use href="/icons.svg#rectangle"></use>
           </svg>
-        </div>
+        </section>
 
         <AddPetForm />
       </div>

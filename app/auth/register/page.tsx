@@ -6,7 +6,7 @@ export default function RegisterPage() {
   return (
     <main className={css.main}>
       <div className="container">
-        <div className={css.register_img_container}>
+        <section className={css.register_img_container}>
           <Image
             src={"/jack.webp"}
             alt="cat Jack"
@@ -18,7 +18,7 @@ export default function RegisterPage() {
           <svg className={css.rectangle_icon}>
             <use href="/icons.svg#rectangle"></use>
           </svg>
-        </div>
+        </section>
         <RegistrationForm />
       </div>
     </main>

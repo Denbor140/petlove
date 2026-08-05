@@ -1,3 +1,8 @@
+.main {
+  padding-top: 18px;
+  padding-bottom: 20px;
+}
+
 .add_pet_img_container {
   position: relative;
   background-color: var(--secondary-color);

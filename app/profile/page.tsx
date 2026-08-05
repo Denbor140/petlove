@@ -1,5 +1,5 @@
 "use client";
-
+import css from "./ProfilePage.module.css";
 import MyNotices from "@/components/MyNotices/MyNotices";
 import UserCard from "@/components/UserCard/UserCard";
 import { useAuthStore } from "@/lib/store/authStore";
@@ -12,7 +12,7 @@ export default function ProfilePage() {
   if (!user) return null;
 
   return (
-    <main>
+    <main className={css.main}>
       <div className="container">
         <UserCard user={user} />
         <MyNotices

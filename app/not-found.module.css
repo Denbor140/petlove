@@ -1,0 +1,52 @@
+.main {
+  padding-top: 16px;
+  padding-bottom: 20px;
+}
+
+.not_found_container {
+  background-color: var(--secondary-color);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  min-height: 100vh;
+}
+
+.title_container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title_container > img {
+  width: 116px;
+  height: 117px;
+}
+
+.not_found_title {
+  font-weight: 800;
+  font-size: 120px;
+  line-height: 1;
+  color: #fff;
+}
+
+.not_found_subtitle {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.not_found_btn {
+  border-radius: 30px;
+  background-color: var(--bg-btn-secondary);
+  padding: 12px 30px;
+  min-width: 150px;
+  height: 42px;
+  font-weight: 700;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--secondary-color);
+}

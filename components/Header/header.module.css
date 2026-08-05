@@ -3,18 +3,22 @@
   top: 18px;
   left: 20px;
   right: 20px;
-  padding-top: 18px;
-  padding-bottom: 20px;
+  padding-top: 11px;
 }
 
 .header_primary {
   position: static;
+  padding-top: 24px;
 }
 
 .header_container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.header_container > a {
+  padding: 10px 0;
 }
 
 .logo {

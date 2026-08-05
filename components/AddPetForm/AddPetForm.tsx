@@ -123,7 +123,7 @@ export default function AddPetForm() {
   };
 
   return (
-    <div className={css.add_pet_form_container}>
+    <section className={css.add_pet_form_container}>
       <div className={css.pet_form_title}>
         <Title title="Add my pet /" />
         <span>Personal details</span>
@@ -361,6 +361,6 @@ export default function AddPetForm() {
           </Form>
         )}
       </Formik>
-    </div>
+    </section>
   );
 }

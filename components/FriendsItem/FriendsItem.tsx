@@ -23,6 +23,7 @@ export default function FriendsItem({ friends }: FriendsItemProps) {
               width={80}
               height={80}
               loading="eager"
+              className={css.friend_img}
             />
             <div className={css.friend_info}>
               <p className={css.friend_title}>{friend.title}</p>

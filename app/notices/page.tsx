@@ -144,7 +144,7 @@ export default function NoticesPage() {
                     setGender(value);
                     setPage(1);
                   }}
-                  placeholder="Gender"
+                  placeholder="By gender"
                 />
               </div>
               <CustomSelect

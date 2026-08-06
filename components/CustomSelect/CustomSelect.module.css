@@ -2,6 +2,18 @@
   position: relative;
 }
 
+@media screen and (min-width: 768px) {
+  .select_container {
+    width: 170px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .select_container {
+    width: 190px;
+  }
+}
+
 .select_value {
   display: flex;
   justify-content: space-between;

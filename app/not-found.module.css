@@ -3,6 +3,12 @@
   padding-bottom: 20px;
 }
 
+@media screen and (min-width: 768px) {
+  .main {
+    padding: 32px 0;
+  }
+}
+
 .not_found_container {
   background-color: var(--secondary-color);
   border-radius: 30px;
@@ -25,6 +31,13 @@
   height: 117px;
 }
 
+@media screen and (min-width: 768px) {
+  .title_container > img {
+    width: 280px;
+    height: 280px;
+  }
+}
+
 .not_found_title {
   font-weight: 800;
   font-size: 120px;
@@ -32,11 +45,23 @@
   color: #fff;
 }
 
+@media screen and (min-width: 768px) {
+  .not_found_title {
+    font-size: 300px;
+  }
+}
+
 .not_found_subtitle {
   font-weight: 700;
   font-size: 16px;
   letter-spacing: -0.03em;
   color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .not_found_subtitle {
+    font-size: 24px;
+  }
 }
 
 .not_found_btn {
@@ -49,4 +74,14 @@
   line-height: 1.29;
   letter-spacing: -0.03em;
   color: var(--secondary-color);
+}
+
+@media screen and (min-width: 768px) {
+  .not_found_btn {
+    font-size: 16px;
+    line-height: 1.25;
+    min-width: 162px;
+    height: 48px;
+    padding: 14px 30px;
+  }
 }

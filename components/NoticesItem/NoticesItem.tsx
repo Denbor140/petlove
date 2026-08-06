@@ -84,23 +84,23 @@ export default function NoticesItem({
               </div>
               <p className={css.notice_comment}>{notice.comment}</p>
             </div>
-            <div className={css.notice_bottom_container}>
-              {notice.price ? (
-                <p className={css.notice_price}>${notice.price}</p>
-              ) : (
-                ""
-              )}
-              <div className={css.notice_btn_container}>
-                <LearnMoreButton notice={notice} tab={tab} />
+          </div>
+          <div className={css.notice_bottom_container}>
+            {notice.price ? (
+              <p className={css.notice_price}>${notice.price}</p>
+            ) : (
+              ""
+            )}
+            <div className={css.notice_btn_container}>
+              <LearnMoreButton notice={notice} tab={tab} />
 
-                {tab !== "viewed" && (
-                  <FavoritesButton
-                    notice={notice}
-                    onToggleFavorite={onToggleFavorite}
-                    isFavoriteInitial={favoriteNotice.has(notice._id)}
-                  />
-                )}
-              </div>
+              {tab !== "viewed" && (
+                <FavoritesButton
+                  notice={notice}
+                  onToggleFavorite={onToggleFavorite}
+                  isFavoriteInitial={favoriteNotice.has(notice._id)}
+                />
+              )}
             </div>
           </div>
         </li>

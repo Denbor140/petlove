@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section>
       <div className={css.hero_container}>
-        <div className="container">
+        <div>
           <h1 className={css.hero_title}>
             Take good <span>care</span> of your small pets
           </h1>

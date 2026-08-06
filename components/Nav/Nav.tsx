@@ -10,21 +10,21 @@ export default function Nav({ onClose }: { onClose?: () => void }) {
     <nav className={css.nav}>
       <Link
         href={"/news"}
-        className={`${css.nav_link} ${pathname === "/news" ? css.nav_link_active : ""}`}
+        className={`${css.nav_link} ${pathname === "/" ? css.nav_link_white : css.nav_link_black} ${pathname === "/news" ? css.nav_link_active : ""}`}
         onClick={onClose}
       >
         News
       </Link>
       <Link
         href={"/notices"}
-        className={`${css.nav_link} ${pathname === "/notices" ? css.nav_link_active : ""}`}
+        className={`${css.nav_link} ${pathname === "/" ? css.nav_link_white : css.nav_link_black} ${pathname === "/notices" ? css.nav_link_active : ""}`}
         onClick={onClose}
       >
         Find pet
       </Link>
       <Link
         href={"/friends"}
-        className={`${css.nav_link} ${pathname === "/friends" ? css.nav_link_active : ""}`}
+        className={`${css.nav_link} ${pathname === "/" ? css.nav_link_white : css.nav_link_black} ${pathname === "/friends" ? css.nav_link_active : ""}`}
         onClick={onClose}
       >
         Our friends

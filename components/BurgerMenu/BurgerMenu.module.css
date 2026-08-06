@@ -38,6 +38,12 @@
   transition: transform 0.3s ease-in-out;
 }
 
+@media screen and (min-width: 768px) {
+  .burger_menu {
+    width: 374px;
+  }
+}
+
 .burger_menu_open {
   transform: translateX(0);
 }

@@ -3,7 +3,16 @@
   top: 18px;
   left: 20px;
   right: 20px;
-  padding-top: 11px;
+  padding-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    top: 16px;
+    left: 32px;
+    right: 32px;
+    padding-top: 16px;
+  }
 }
 
 .header_primary {
@@ -21,10 +30,33 @@
   padding: 10px 0;
 }
 
+@media screen and (min-width: 768px) {
+  .header_container > a {
+    padding: 11px 0;
+  }
+}
+
 .logo {
   width: 76px;
   height: 20px;
   fill: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 106px;
+    height: 28px;
+  }
+}
+
+.nav {
+  display: none;
+}
+
+@media screen and (min-width: 1280px) {
+  .nav {
+    display: block;
+  }
 }
 
 .user_nav_container {
@@ -33,9 +65,32 @@
   gap: 12px;
 }
 
+@media screen and (min-width: 768px) {
+  .user_nav_container {
+    gap: 16px;
+  }
+}
+
+.auth_nav {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .auth_nav {
+    display: block;
+  }
+}
+
 .burger_btn {
   width: 32px;
   height: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .burger_btn {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .burger_icon {

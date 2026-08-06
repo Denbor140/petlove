@@ -7,6 +7,8 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuthStore } from "@/lib/store/authStore";
 import UserBar from "../UserBar/UserBar";
+import Nav from "../Nav/Nav";
+import AuthNav from "../AuthNav/AuthNav";
 
 export default function Header() {
   const pathname = usePathname();
@@ -30,8 +32,17 @@ export default function Header() {
               </svg>
             )}
           </Link>
+          <div className={css.nav}>
+            <Nav />
+          </div>
           <div className={css.user_nav_container}>
-            {isAuthenticated && user && <UserBar user={user} />}
+            {isAuthenticated && user ? (
+              <UserBar user={user} />
+            ) : (
+              <div className={`${css.auth_nav} `}>
+                <AuthNav />
+              </div>
+            )}
             <button
               type="button"
               className={css.burger_btn}

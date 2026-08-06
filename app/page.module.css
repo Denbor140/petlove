@@ -2,8 +2,41 @@
   padding: 10px 0;
 }
 
+@media screen and (min-width: 768px) {
+  .main {
+    padding: 16px 0;
+  }
+}
+
 .hero_img {
   width: 100%;
   height: 100%;
   border-radius: 30px;
+}
+
+@media screen and (min-width: 320px) {
+  .tab_only,
+  .desk_only {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile_only {
+    display: none;
+  }
+
+  .tab_only {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .tab_only {
+    display: none;
+  }
+
+  .desk_only {
+    display: block;
+  }
 }

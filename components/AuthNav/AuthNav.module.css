@@ -4,11 +4,17 @@
   gap: 8px;
 }
 
+@media screen and (min-width: 768px) {
+  .auth_nav_container {
+    flex-direction: row;
+  }
+}
+
 .btn_log_in {
   border-radius: 30px;
   padding: 12px 67px;
   background-color: var(--bg-btn-primary);
-  width: 178px;
+  min-width: 119px;
   height: 42px;
   font-weight: 700;
   line-height: 1.29;
@@ -17,15 +23,30 @@
   color: #fff;
 }
 
+.log_in_home {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
 .btn_registration {
   border-radius: 30px;
   padding: 12px 41px;
   background-color: var(--bg-btn-secondary);
-  width: 178px;
+  min-width: 119px;
   height: 42px;
   font-weight: 700;
   line-height: 1.29;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--secondary-color);
+}
+
+@media screen and (min-width: 768px) {
+  .btn_log_in,
+  .btn_registration {
+    font-size: 16px;
+    height: 50px;
+    padding: 15px 20px;
+    text-align: center;
+    line-height: 1.25;
+  }
 }

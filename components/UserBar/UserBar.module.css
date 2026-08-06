@@ -1,3 +1,24 @@
+.user_bar_container {
+  display: flex;
+  gap: 8px;
+}
+
+.user_bar_container > button {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .user_bar_container > button {
+    display: block;
+  }
+}
+
+.user_profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .user_avatar {
   border-radius: 50px;
   width: 40px;
@@ -14,4 +35,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .user_avatar,
+  .user_avatar_default {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.user_name {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .user_name_white {
+    color: #fff;
+  }
+
+  .user_name {
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
 }

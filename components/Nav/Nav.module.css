@@ -4,14 +4,41 @@
   gap: 10px;
 }
 
+@media screen and (min-width: 1280px) {
+  .nav {
+    flex-direction: row;
+    height: 50px;
+  }
+}
+
 .nav_link {
   border-radius: 30px;
   height: 48px;
-  padding: 15px 25px;
+  padding: 15px 0;
+  min-width: 120px;
   border: 1px solid var(--nav-border-normal);
-  line-height: 1.28571;
+  line-height: 1.29;
   letter-spacing: -0.03em;
   text-align: center;
+}
+
+@media screen and (min-width: 1280px) {
+  .nav_link_white {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+  }
+
+  .nav_link_black {
+    border: 1px solid var(--nav-border-normal);
+  }
+
+  .nav_link {
+    height: 50px;
+    padding: 15px 20px;
+    min-width: 80px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
 }
 
 .nav_link_active {

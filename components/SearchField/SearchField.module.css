@@ -17,6 +17,12 @@
   transition: border-color 250ms ease-in-out;
 }
 
+@media screen and (min-width: 768px) {
+  .search_input {
+    width: 230px;
+  }
+}
+
 .search_input::placeholder {
   color: rgba(38, 38, 38, 0.5);
   line-height: 1.29;

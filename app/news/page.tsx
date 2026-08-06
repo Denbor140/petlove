@@ -35,8 +35,10 @@ export default function NewsPage() {
   return (
     <main className={css.main}>
       <div className="container">
-        <Title title="News" marginBottom="20px" />
-        <SearchField keyword={searchText} onSearch={handleSearch} />
+        <div className={css.news_top_container}>
+          <Title title="News" />
+          <SearchField keyword={searchText} onSearch={handleSearch} />
+        </div>
         <section className={css.news_section}>
           <NewsList news={data?.results ?? []} />
         </section>

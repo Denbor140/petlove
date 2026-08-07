@@ -6,20 +6,22 @@ export default function LoginPage() {
   return (
     <main className={css.main}>
       <div className="container">
-        <section className={css.login_img_container}>
-          <Image
-            src={"/rich.webp"}
-            alt="Dog Rich"
-            width={335}
-            height={280}
-            loading="eager"
-            className={css.login_img}
-          />
-          <svg className={css.rectangle_icon}>
-            <use href="/icons.svg#rectangle"></use>
-          </svg>
-        </section>
-        <LoginForm />
+        <div className={css.login_page_container}>
+          <section className={css.login_img_container}>
+            <Image
+              src={"/rich.webp"}
+              alt="Dog Rich"
+              width={512}
+              height={660}
+              loading="eager"
+              className={css.login_img}
+            />
+            <svg className={css.rectangle_icon}>
+              <use href="/icons.svg#rectangle"></use>
+            </svg>
+          </section>
+          <LoginForm />
+        </div>
       </div>
     </main>
   );

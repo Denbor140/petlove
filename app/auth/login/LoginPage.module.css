@@ -2,22 +2,64 @@
   padding: 20px 0;
 }
 
+@media screen and (min-width: 768px) {
+  .main {
+    padding: 32px 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .login_page_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
 .login_img_container {
   position: relative;
   background-color: var(--secondary-color);
-  width: 335px;
   height: 280px;
   border-radius: 30px;
   margin-bottom: 10px;
   overflow: hidden;
 }
 
+@media screen and (min-width: 768px) {
+  .login_img_container {
+    height: 302px;
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .login_img_container {
+    height: 100%;
+  }
+}
+
 .login_img {
-  position: relative;
-  height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center 30%;
   z-index: 1;
+  width: 290px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .login_img {
+    transform: none;
+    left: 250px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .login_img {
+    width: 512px;
+  }
 }
 
 .rectangle_icon {
@@ -27,4 +69,22 @@
   height: 100%;
   right: 0px;
   pointer-events: none;
+}
+
+@media screen and (min-width: 768px) {
+  .rectangle_icon {
+    width: 572px;
+    height: 715px;
+    top: -25%;
+    left: 90px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .rectangle_icon {
+    width: 530px;
+    height: 715px;
+    top: -15%;
+    left: 30px;
+  }
 }

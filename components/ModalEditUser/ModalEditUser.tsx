@@ -210,7 +210,7 @@ export default function ModalEditUser({ user, onClose }: ModalEditUserProps) {
               />
             </div>
             <button type="submit" className={css.form_btn} disabled={!dirty}>
-              Go to profile
+              Save
             </button>
           </Form>
         )}

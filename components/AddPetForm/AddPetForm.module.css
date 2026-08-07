@@ -1,3 +1,21 @@
+.add_pet_form_container {
+  border-radius: 30px;
+  background-color: #fff;
+  padding: 28px 20px 20px 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .add_pet_form_container {
+    padding: 40px 136px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .add_pet_form_container {
+    padding: 60px 80px;
+  }
+}
+
 .form_gender_container {
   display: flex;
   gap: 8px;
@@ -5,11 +23,22 @@
 }
 
 .gender_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 30px;
   padding: 6px;
   width: 32px;
   height: 32px;
   transition: background-color 300ms ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+  .gender_btn {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
 }
 
 .male {
@@ -59,6 +88,15 @@
     fill 300ms ease-in-out;
 }
 
+@media screen and (min-width: 768px) {
+  .male_icon,
+  .female_icon,
+  .multiple_icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 .icon_active {
   stroke: #fff;
   fill: transparent;
@@ -71,10 +109,28 @@
   margin-bottom: 24px;
 }
 
+@media screen and (min-width: 768px) {
+  .pet_form_title > h1 {
+    font-size: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .pet_form_title {
+    margin-bottom: 40px;
+  }
+}
+
 .pet_form_title > span {
   font-weight: 700;
   line-height: 1.29;
   color: rgba(43, 43, 42, 0.4);
+}
+
+@media screen and (min-width: 768px) {
+  .pet_form_title > span {
+    font-size: 16px;
+  }
 }
 
 .pet_avatar,
@@ -83,6 +139,20 @@
   width: 68px;
   height: 68px;
   margin: 0 auto 16px auto;
+}
+
+@media screen and (min-width: 768px) {
+  .pet_avatar,
+  .pet_avatar_default {
+    width: 86px;
+    height: 86px;
+    margin-bottom: 12px;
+  }
+
+  .pet_avatar_default > svg {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 .pet_avatar {
@@ -105,6 +175,14 @@
   height: 36px;
 }
 
+@media screen and (min-width: 768px) {
+  .form_input_img {
+    width: 278px;
+    height: 42px;
+    padding: 12px;
+  }
+}
+
 .upload_btn {
   border-radius: 30px;
   padding: 10px;
@@ -118,10 +196,13 @@
   justify-content: space-between;
 }
 
-.add_pet_form_container {
-  border-radius: 30px;
-  background-color: #fff;
-  padding: 28px 20px 20px 20px;
+@media screen and (min-width: 768px) {
+  .upload_btn {
+    width: 146px;
+    height: 42px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
 }
 
 .form_image_container {
@@ -135,6 +216,14 @@
   margin-bottom: 10px;
 }
 
+@media screen and (min-width: 768px) {
+  .form_image_container,
+  .form_title_container,
+  .form_name_container {
+    margin-bottom: 18px;
+  }
+}
+
 .form_input {
   border: 1px solid rgba(38, 38, 38, 0.15);
   border-radius: 30px;
@@ -144,6 +233,13 @@
   line-height: 1.29;
   letter-spacing: -0.03em;
   transition: border-color 300ms ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+  .form_input {
+    padding: 16px;
+    height: 52px;
+  }
 }
 
 .form_input:focus {
@@ -158,6 +254,14 @@
   color: rgba(38, 38, 38, 0.5);
 }
 
+@media screen and (min-width: 768px) {
+  .form_input::placeholder,
+  .form_input_img::placeholder,
+  .species_select {
+    font-size: 16px;
+  }
+}
+
 .species_select {
   border: 1px solid rgba(38, 38, 38, 0.15);
   border-radius: 30px;
@@ -168,6 +272,12 @@
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   margin-bottom: 31px;
+}
+
+@media screen and (min-width: 768px) {
+  .form_bs_container {
+    margin-bottom: 46px;
+  }
 }
 
 .birthday_input_container {
@@ -181,6 +291,14 @@
   transform: translateY(-50%);
   stroke: #262626;
   fill: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .calendar_img {
+    width: 20px;
+    height: 20px;
+    right: 16px;
+  }
 }
 
 .error {
@@ -212,6 +330,16 @@
   font-weight: 700;
   line-height: 1.29;
   letter-spacing: -0.03em;
+}
+
+@media screen and (min-width: 768px) {
+  .form_back_btn,
+  .form_submit_btn {
+    width: 170px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
 }
 
 .form_back_btn {

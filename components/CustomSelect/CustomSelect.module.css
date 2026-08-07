@@ -8,6 +8,13 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+  .select_container_pet {
+    width: 100%;
+    height: 52px;
+  }
+}
+
 @media screen and (min-width: 1280px) {
   .select_container {
     width: 190px;
@@ -24,6 +31,12 @@
   cursor: pointer;
   line-height: 1.29;
   letter-spacing: -0.03em;
+}
+
+@media screen and (min-width: 768px) {
+  .select_value_pet {
+    padding: 16px;
+  }
 }
 
 .value_selected {
@@ -77,6 +90,12 @@
 
 .dropdown_list_pet {
   max-height: 78px;
+}
+
+@media screen and (min-width: 768px) {
+  .dropdown_list_pet {
+    max-height: 105px;
+  }
 }
 
 .select_option {

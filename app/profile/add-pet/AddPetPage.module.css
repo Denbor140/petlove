@@ -3,14 +3,48 @@
   padding-bottom: 20px;
 }
 
+@media screen and (min-width: 768px) {
+  .main {
+    padding-top: 32px;
+    padding-bottom: 60px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .main {
+    padding-bottom: 62px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .add_pet_page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
 .add_pet_img_container {
   position: relative;
   background-color: var(--secondary-color);
-  width: 335px;
+  width: 100%;
   height: 213px;
   border-radius: 30px;
   margin-bottom: 10px;
   overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .add_pet_img_container {
+    height: 248px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .add_pet_img_container {
+    height: 100%;
+    margin-bottom: 0;
+  }
 }
 
 .add_pet_img {
@@ -22,6 +56,19 @@
   object-fit: none;
 }
 
+@media screen and (min-width: 768px) {
+  .add_pet_img {
+    object-position: top;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .add_pet_img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .rectangle_icon {
   position: absolute;
   top: -50px;
@@ -29,4 +76,20 @@
   height: 414px;
   left: 13px;
   pointer-events: none;
+}
+
+@media screen and (min-width: 768px) {
+  .rectangle_icon {
+    width: 550px;
+    height: 715px;
+    left: 105px;
+    top: -85px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .rectangle_icon {
+    top: -100px;
+    left: 20px;
+  }
 }

@@ -24,15 +24,18 @@ export default function CustomSelect({
 }: CustomSelectProps) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const isAddPetPage = pathname === "/profile/add-pet";
 
   const selectedOption = options.find(
     (option) => option.value === value && value !== "",
   );
 
   return (
-    <div className={css.select_container}>
+    <div
+      className={`${css.select_container} ${isAddPetPage ? css.select_container_pet : ""}`}
+    >
       <div
-        className={css.select_value}
+        className={`${css.select_value} ${isAddPetPage ? css.select_value_pet : ""}`}
         onClick={() => setOpen((prev) => !prev)}
       >
         <span

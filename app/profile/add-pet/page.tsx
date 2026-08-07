@@ -8,21 +8,22 @@ export default function AddPetPage() {
   return (
     <main className={css.main}>
       <div className="container">
-        <section className={css.add_pet_img_container}>
-          <Image
-            src={"/add-pet-img.webp"}
-            alt="Dog in add pet page"
-            width={297}
-            height={248}
-            loading="eager"
-            className={css.add_pet_img}
-          />
-          <svg className={css.rectangle_icon}>
-            <use href="/icons.svg#rectangle"></use>
-          </svg>
-        </section>
-
-        <AddPetForm />
+        <div className={css.add_pet_page}>
+          <section className={css.add_pet_img_container}>
+            <Image
+              src={"/add-pet-img.webp"}
+              alt="Dog in add pet page"
+              width={512}
+              height={648}
+              loading="eager"
+              className={css.add_pet_img}
+            />
+            <svg className={css.rectangle_icon}>
+              <use href="/icons.svg#rectangle"></use>
+            </svg>
+          </section>
+          <AddPetForm />
+        </div>
       </div>
     </main>
   );

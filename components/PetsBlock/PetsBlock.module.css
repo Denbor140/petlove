@@ -5,6 +5,12 @@
   margin-bottom: 20px;
 }
 
+@media screen and (min-width: 768px) {
+  .pets_block_container {
+    gap: 28px;
+  }
+}
+
 .pets_block_top {
   display: flex;
   align-items: center;
@@ -14,6 +20,13 @@
 .pets_block_title {
   font-weight: 700;
   font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .pets_block_title {
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .add_pet_link {
@@ -28,4 +41,13 @@
   line-height: 1.29;
   letter-spacing: -0.03em;
   color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .add_pet_link {
+    width: 118px;
+    height: 40px;
+    font-size: 16px;
+    padding: 10px 20px;
+  }
 }

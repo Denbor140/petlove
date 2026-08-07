@@ -2,11 +2,24 @@
   margin-bottom: 40px;
 }
 
+@media screen and (min-width: 768px) {
+  .user_card_section {
+    margin-bottom: 32px;
+  }
+}
+
 .user_card_container {
   background-color: #fff;
   border-radius: 30px;
   padding: 20px;
 }
+
+@media screen and (min-width: 768px) {
+  .user_card_container {
+    padding: 40px;
+  }
+}
+
 .user_name_container {
   display: flex;
   justify-content: space-between;

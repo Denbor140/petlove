@@ -27,6 +27,7 @@ export default function FavoritesButton({
   const removeFavorite = useAuthStore((state) => state.removeFavorite);
   const isFavorite = isFavoriteInitial;
   const pathname = usePathname();
+  const isProfilePage = pathname === "/profile";
 
   const handleClick = async () => {
     if (!isAuthenticated) {
@@ -48,7 +49,7 @@ export default function FavoritesButton({
   return (
     <button
       type="button"
-      className={css.notice_favorites_btn}
+      className={`${css.notice_favorites_btn} ${isProfilePage ? css.notice_favorites_btn_profile : ""}`}
       onClick={handleClick}
     >
       {pathname === "/profile" ? (

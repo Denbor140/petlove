@@ -15,11 +15,13 @@ export default function ProfilePage() {
   return (
     <main className={css.main}>
       <div className="container">
-        <UserCard user={user} />
-        <MyNotices
-          favoriteNotices={user.noticesFavorites}
-          viewedNotices={user.noticesViewed}
-        />
+        <div className={css.profile_page_container}>
+          <UserCard user={user} />
+          <MyNotices
+            favoriteNotices={user.noticesFavorites}
+            viewedNotices={user.noticesViewed}
+          />
+        </div>
       </div>
     </main>
   );

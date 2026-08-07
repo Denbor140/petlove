@@ -8,6 +8,7 @@ import FavoritesButton from "./FavoritesButton";
 import { useAuthStore } from "@/lib/store/authStore";
 import { useMemo } from "react";
 import { Tab } from "../MyNotices/MyNotices";
+import { usePathname } from "next/navigation";
 
 interface NoticesItemProps {
   notices: Notice[];
@@ -21,6 +22,8 @@ export default function NoticesItem({
   onToggleFavorite,
 }: NoticesItemProps) {
   const user = useAuthStore((state) => state.user);
+  const pathname = usePathname();
+  const isProfilePage = pathname === "/profile";
 
   const favoriteNotice = useMemo(
     () => new Set(user?.noticesFavorites.map((n) => n._id) ?? []),
@@ -28,9 +31,14 @@ export default function NoticesItem({
   );
 
   return (
-    <ul className={css.notices_list}>
+    <ul
+      className={`${css.notices_list} ${isProfilePage ? css.notices_list_profile : ""}`}
+    >
       {notices.map((notice) => (
-        <li key={notice._id} className={css.notices_item}>
+        <li
+          key={notice._id}
+          className={`${css.notices_item} ${isProfilePage ? css.notices_item_profile : ""}`}
+        >
           <Image
             src={notice.imgURL}
             alt={notice.name}

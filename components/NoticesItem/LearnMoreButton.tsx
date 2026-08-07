@@ -5,6 +5,7 @@ import { Notice } from "@/types/notice";
 import { getNoticesById } from "@/lib/api/clientApi";
 import { useMutation } from "@tanstack/react-query";
 import { Tab } from "../MyNotices/MyNotices";
+import { usePathname } from "next/navigation";
 
 interface LearnMoreButtonProps {
   notice: Notice;
@@ -14,6 +15,8 @@ interface LearnMoreButtonProps {
 export default function LearnMoreButton({ notice, tab }: LearnMoreButtonProps) {
   const { openModal } = useModal();
   const { isAuthenticated } = useAuthStore();
+  const pathname = usePathname();
+  const isProfilePage = pathname === "/profile";
 
   const mutation = useMutation({
     mutationFn: () => getNoticesById(notice._id),
@@ -34,7 +37,7 @@ export default function LearnMoreButton({ notice, tab }: LearnMoreButtonProps) {
   return (
     <button
       type="button"
-      className={`${css.notice_more_btn} ${tab === "viewed" ? css.more_btn_viewed : ""}`}
+      className={`${css.notice_more_btn} ${tab === "viewed" ? css.more_btn_viewed : ""} ${isProfilePage ? css.notice_more_btn_profile : ""}`}
       onClick={handleClick}
       disabled={mutation.isPending}
     >

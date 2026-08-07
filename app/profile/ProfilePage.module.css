@@ -2,3 +2,24 @@
   padding-top: 18px;
   padding-bottom: 56px;
 }
+
+@media screen and (min-width: 768px) {
+  .main {
+    padding-top: 32px;
+    padding-bottom: 60px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .main {
+    padding-bottom: 62px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .profile_page_container {
+    display: grid;
+    grid-template-columns: 520px 1fr;
+    gap: 32px;
+  }
+}

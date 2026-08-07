@@ -7,12 +7,40 @@
   gap: 14px;
 }
 
+@media screen and (min-width: 768px) {
+  .pet_item {
+    padding: 22px 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .pet_item {
+    gap: 24px;
+    align-items: center;
+    padding: 19px;
+  }
+}
+
 .pet_img {
   border-radius: 100px;
   width: 66px;
   height: 66px;
   object-fit: cover;
   object-position: top;
+}
+
+@media screen and (min-width: 768px) {
+  .pet_img {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .pet_img {
+    width: 90px;
+    height: 90px;
+  }
 }
 
 .pet_title {
@@ -22,11 +50,24 @@
   margin-bottom: 8px;
 }
 
+@media screen and (min-width: 768px) {
+  .pet_title {
+    margin-bottom: 12px;
+  }
+}
+
 .pet_info {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   max-width: 173px;
+}
+
+@media screen and (min-width: 1280px) {
+  .pet_info {
+    gap: 27px;
+    max-width: 243px;
+  }
 }
 
 .pet_name,
@@ -63,4 +104,31 @@
   width: 30px;
   height: 30px;
   background-color: var(--bg-btn-secondary);
+  transition: background-color 300ms ease-in-out;
+}
+
+.pet_delete_btn:hover,
+.pet_delete_btn :focus {
+  background-color: var(--bg-btn-hover-secondary);
+}
+
+@media screen and (min-width: 768px) {
+  .pet_delete_btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .pet_delete_btn > svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .pet_delete_btn {
+    width: 38px;
+    height: 38px;
+    top: 19px;
+    right: 19px;
+  }
 }

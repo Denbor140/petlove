@@ -11,6 +11,13 @@
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .pets_block_container {
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+}
+
 .pets_block_top {
   display: flex;
   align-items: center;

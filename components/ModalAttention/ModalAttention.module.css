@@ -20,6 +20,11 @@
 .close_icon {
   stroke-width: 2px;
   stroke: currentColor;
+  transition: stroke 300ms ease-in-out;
+}
+
+.close_icon:hover {
+  stroke: #f6b83d;
 }
 
 .title {
@@ -67,6 +72,7 @@
   line-height: 1.29;
   letter-spacing: -0.03em;
   color: #fff;
+  transition: background-color 300ms ease-in-out;
 }
 
 .register_link {
@@ -79,6 +85,7 @@
   line-height: 1.29;
   letter-spacing: -0.03em;
   color: var(--secondary-color);
+  transition: background-color 300ms ease-in-out;
 }
 
 @media screen and (min-width: 768px) {
@@ -90,4 +97,13 @@
     font-size: 16px;
     text-align: center;
   }
+}
+
+.log_in_link:hover,
+.log_in_link:focus {
+  background-color: #f9b020;
+}
+
+.register_link:hover {
+  background-color: var(--bg-btn-hover-secondary);
 }

@@ -20,6 +20,12 @@
 .close_icon {
   stroke-width: 2px;
   stroke: currentColor;
+  transition: stroke 300ms ease-in-out;
+}
+
+.close_icon:hover,
+.close_icon:focus {
+  stroke: #f6b83d;
 }
 
 .title {
@@ -52,6 +58,7 @@
   font-weight: 700;
   line-height: 1.29;
   letter-spacing: -0.03em;
+  transition: background-color 300ms ease-out;
 }
 
 .btn_cancel {
@@ -64,6 +71,7 @@
   line-height: 1.29;
   letter-spacing: -0.03em;
   color: currentColor;
+  transition: background-color 300ms ease-in-out;
 }
 
 @media screen and (min-width: 768px) {
@@ -74,4 +82,14 @@
     padding: 14px;
     font-size: 16px;
   }
+}
+
+.btn_yes:hover,
+.btn_yes:focus {
+  background-color: #f9b020;
+}
+
+.btn_cancel:hover,
+.btn_cancel:focus {
+  background-color: var(--bg-btn-hover-secondary);
 }

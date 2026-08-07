@@ -41,6 +41,7 @@
   line-height: 1.29;
   letter-spacing: -0.03em;
   color: #fff;
+  transition: background-color 300ms ease-in-out;
 }
 
 @media screen and (min-width: 768px) {
@@ -50,4 +51,9 @@
     font-size: 16px;
     padding: 10px 20px;
   }
+}
+
+.add_pet_link:hover,
+.add_pet_link:focus {
+  background-color: #f9b020;
 }

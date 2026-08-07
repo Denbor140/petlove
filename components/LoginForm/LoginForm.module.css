@@ -112,6 +112,12 @@
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: #fff;
+  transition: background-color 300ms ease-in-out;
+}
+
+.form_btn:hover,
+.form_btn:focus {
+  background-color: #f9b020;
 }
 
 @media screen and (min-width: 768px) {
@@ -144,6 +150,12 @@
   font-weight: 700;
   text-decoration-skip-ink: none;
   color: var(--secondary-color);
+  transition: color 300ms ease-in-out;
+}
+
+.register_link:hover,
+.register_link:focus {
+  color: #f9b020;
 }
 
 .error {

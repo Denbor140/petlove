@@ -175,6 +175,12 @@
   color: #fff;
   line-height: 1.29;
   letter-spacing: -0.03em;
+  transition: background-color 300ms ease-in-out;
+}
+
+.notice_more_btn:hover,
+.notice_more_btn:focus {
+  background-color: #f9b020;
 }
 
 @media screen and (min-width: 768px) {
@@ -214,6 +220,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 300ms ease-in-out;
+}
+
+.notice_favorites_btn:hover,
+.notice_favorites_btn:focus {
+  background-color: var(--bg-btn-hover-secondary);
 }
 
 @media screen and (min-width: 768px) {

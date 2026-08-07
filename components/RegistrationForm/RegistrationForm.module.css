@@ -64,6 +64,12 @@
   text-transform: uppercase;
   color: #fff;
   margin-bottom: 12px;
+  transition: background-color 300ms ease-in-out;
+}
+
+.form_btn:hover,
+.form_btn:focus {
+  background-color: #f9b020;
 }
 
 @media screen and (min-width: 768px) {
@@ -94,6 +100,12 @@
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: var(--secondary-color);
+  transition: color 300ms ease-in-out;
+}
+
+.login_link:hover,
+.login_link:focus {
+  color: #f9b020;
 }
 
 .form_name_container,

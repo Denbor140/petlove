@@ -43,6 +43,11 @@
 
 .male {
   background-color: var(--male-btn-bg);
+  cursor: pointer;
+}
+
+.male > label {
+  cursor: pointer;
 }
 
 .male_active {
@@ -51,6 +56,11 @@
 
 .female {
   background-color: var(--female-btn-bg);
+  cursor: pointer;
+}
+
+.female > label {
+  cursor: pointer;
 }
 
 .female_active {
@@ -59,6 +69,11 @@
 
 .multiple {
   background-color: var(--multiple-btn-bg);
+  cursor: pointer;
+}
+
+.multiple > label {
+  cursor: pointer;
 }
 
 .multiple_active {
@@ -194,6 +209,12 @@
   letter-spacing: -0.02em;
   display: inline-flex;
   justify-content: space-between;
+  transition: background-color 300ms ease-in-out;
+}
+
+.upload_btn:hover,
+.upload_btn:focus {
+  background-color: var(--bg-btn-hover-secondary);
 }
 
 @media screen and (min-width: 768px) {
@@ -330,6 +351,17 @@
   font-weight: 700;
   line-height: 1.29;
   letter-spacing: -0.03em;
+  transition: background-color 300ms ease-in-out;
+}
+
+.form_submit_btn:hover,
+.form_submit_btn:focus {
+  background-color: #f9b020;
+}
+
+.form_back_btn:hover,
+.form_back_btn:focus {
+  background-color: #fbe7c1;
 }
 
 @media screen and (min-width: 768px) {

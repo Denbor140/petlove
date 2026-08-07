@@ -5,6 +5,12 @@
 
 .user_bar_container > button {
   display: none;
+  transition: background-color 300ms ease-in-out;
+}
+
+.user_bar_container > button:hover,
+.user_bar_container > button:focus {
+  background-color: #f9b020;
 }
 
 @media screen and (min-width: 768px) {

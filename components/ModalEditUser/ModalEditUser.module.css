@@ -9,6 +9,12 @@
 .close_icon {
   stroke-width: 2px;
   stroke: currentColor;
+  transition: stroke 300ms ease-in-out;
+}
+
+.close_icon:hover,
+.close_icon:focus {
+  stroke: #f6b83d;
 }
 
 .title {
@@ -100,6 +106,12 @@
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: -0.02em;
+  transition: background-color 300ms ease-in-out;
+}
+
+.upload_btn:hover,
+.upload_btn:focus {
+  background-color: var(--bg-btn-hover-secondary);
 }
 
 @media screen and (min-width: 768px) {
@@ -158,6 +170,12 @@
   line-height: 1.29;
   letter-spacing: -0.03em;
   color: #fff;
+  transition: background-color 300ms ease-in-out;
+}
+
+.form_btn:hover,
+.form_btn:focus {
+  background-color: #f9b020;
 }
 
 @media screen and (min-width: 768px) {

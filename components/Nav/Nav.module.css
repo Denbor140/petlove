@@ -20,6 +20,11 @@
   line-height: 1.29;
   letter-spacing: -0.03em;
   text-align: center;
+  transition: border-color 300ms ease-in-out;
+}
+
+.nav_link:hover {
+  border-color: var(--secondary-color);
 }
 
 @media screen and (min-width: 1280px) {

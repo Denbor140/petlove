@@ -21,10 +21,20 @@
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: #fff;
+  transition: background-color 300ms ease-in-out;
+}
+
+.btn_log_in:hover {
+  background-color: #f9b020;
 }
 
 .log_in_home {
   border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.log_in_home:hover {
+  background-color: var(--bg-btn-hover-primary);
+  color: var(--secondary-color);
 }
 
 .btn_registration {
@@ -38,6 +48,11 @@
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--secondary-color);
+  transition: background-color 300ms ease-in-out;
+}
+
+.btn_registration:hover {
+  background-color: var(--bg-btn-hover-secondary);
 }
 
 @media screen and (min-width: 768px) {

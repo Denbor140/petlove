@@ -4,4 +4,10 @@
   border-radius: 30px;
   padding: 10px;
   background-color: var(--bg-btn-secondary);
+  transition: background-color 300ms ease-in-out;
+}
+
+.edit_btn:hover,
+.edit_btn:focus {
+  background-color: var(--bg-btn-hover-secondary);
 }

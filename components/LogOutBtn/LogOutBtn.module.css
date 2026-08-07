@@ -8,6 +8,11 @@
   text-transform: uppercase;
   color: var(--secondary-color);
   height: 42px;
+  transition: background-color 300ms ease-in-out;
+}
+
+.logout_btn_profile:hover {
+  background-color: var(--bg-btn-hover-secondary);
 }
 
 .logout_btn_profile {

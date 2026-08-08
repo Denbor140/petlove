@@ -4,7 +4,7 @@ import { News } from "@/types/news";
 import { Friends } from "@/types/friends";
 import { Notice } from "@/types/notice";
 import { City } from "@/types/city";
-import { FilterValue } from "@/components/FilterButtons/FilterButtons";
+import { FilterValue } from "@/components/Notices/FilterButtons/FilterButtons";
 
 export interface RegisterRequest {
   name: string;

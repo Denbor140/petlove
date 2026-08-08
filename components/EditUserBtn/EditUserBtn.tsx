@@ -1,7 +1,7 @@
 "use client";
 
 import css from "./EditUserBtn.module.css";
-import { useModal } from "../ModalProvider/ModalProvider";
+import { useModal } from "../Providers/ModalProvider/ModalProvider";
 import { UserFull } from "@/types/user";
 
 interface EditUserBtnProps {

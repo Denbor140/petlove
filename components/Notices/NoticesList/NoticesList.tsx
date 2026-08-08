@@ -1,6 +1,6 @@
 import { Notice } from "@/types/notice";
 import NoticesItem from "../NoticesItem/NoticesItem";
-import { Tab } from "../MyNotices/MyNotices";
+import { Tab } from "../../Profile/MyNotices/MyNotices";
 
 interface NoticesListProps {
   notices: Notice[];

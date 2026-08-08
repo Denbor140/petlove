@@ -1,8 +1,8 @@
 "use client";
 import Loader from "@/components/Loader/Loader";
 import css from "./ProfilePage.module.css";
-import MyNotices from "@/components/MyNotices/MyNotices";
-import UserCard from "@/components/UserCard/UserCard";
+import MyNotices from "@/components/Profile/MyNotices/MyNotices";
+import UserCard from "@/components/Profile/UserCard/UserCard";
 import { useAuthStore } from "@/lib/store/authStore";
 
 export default function ProfilePage() {

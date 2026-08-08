@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Modal from "../Modal/Modal";
-import { ModalMode } from "../ModalProvider/ModalProvider";
+import { ModalMode } from "../../Providers/ModalProvider/ModalProvider";
 import ModalAttention from "../ModalAttention/ModalAttention";
 import ModalNotice from "../ModalNotice/ModalNotice";
 import { Notice } from "@/types/notice";

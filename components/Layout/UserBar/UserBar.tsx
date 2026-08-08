@@ -4,7 +4,7 @@ import { useAuthStore } from "@/lib/store/authStore";
 import Link from "next/link";
 import { UserFull } from "@/types/user";
 import { usePathname } from "next/navigation";
-import LogOutBtnHeader from "../LogOutBtn/LogOutBtnHeader";
+import LogOutBtnHeader from "@/components/LogOutBtn/LogOutBtnHeader";
 
 interface UserBarProps {
   user: UserFull;

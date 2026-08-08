@@ -2,7 +2,7 @@
 
 import Loader from "@/components/Loader/Loader";
 import css from "./FriendsPage.module.css";
-import FriendsList from "@/components/FriendsList/FriendsList";
+import FriendsList from "@/components/Friends/FriendsList/FriendsList";
 import Title from "@/components/Title/Title";
 import { getFriends } from "@/lib/api/clientApi";
 import { Friends } from "@/types/friends";

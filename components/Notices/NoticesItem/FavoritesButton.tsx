@@ -1,7 +1,7 @@
 "use client";
 
 import css from "./NoticesItem.module.css";
-import { useModal } from "../ModalProvider/ModalProvider";
+import { useModal } from "@/components/Providers/ModalProvider/ModalProvider";
 import { useAuthStore } from "@/lib/store/authStore";
 import { Notice } from "@/types/notice";
 import {

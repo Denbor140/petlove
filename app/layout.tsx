@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header/Header";
-import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
-import AuthProvider from "@/components/AuthProvider/AuthProvider";
-import { ModalProvider } from "@/components/ModalProvider/ModalProvider";
+import Header from "@/components/Layout/Header/Header";
+import TanStackProvider from "@/components/Providers/TanStackProvider/TanStackProvider";
+import AuthProvider from "@/components/Providers/AuthProvider/AuthProvider";
+import { ModalProvider } from "@/components/Providers/ModalProvider/ModalProvider";
 
 const manrope = Manrope({
   variable: "--font-primary",

@@ -3,8 +3,8 @@
 import css from "./BurgerMenu.module.css";
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
-import Nav from "../Nav/Nav";
-import AuthNav from "../AuthNav/AuthNav";
+import Nav from "../Layout/Nav/Nav";
+import AuthNav from "../Layout/AuthNav/AuthNav";
 import { useAuthStore } from "@/lib/store/authStore";
 import LogOutBtn from "../LogOutBtn/LogOutBtn";
 

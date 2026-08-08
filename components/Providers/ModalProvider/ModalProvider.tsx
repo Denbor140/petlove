@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import ChooseModal from "@/components/ChooseModal/ChooseModal";
+import ChooseModal from "@/components/Modals/ChooseModal/ChooseModal";
 import { Notice } from "@/types/notice";
 import { UserFull } from "@/types/user";
 

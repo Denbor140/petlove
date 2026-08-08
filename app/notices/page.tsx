@@ -4,7 +4,7 @@ import CustomSelect, {
   SelectOption,
 } from "@/components/CustomSelect/CustomSelect";
 import css from "./NoticesPage.module.css";
-import NoticesList from "@/components/NoticesList/NoticesList";
+import NoticesList from "@/components/Notices/NoticesList/NoticesList";
 import Pagination from "@/components/Pagination/Pagination";
 import SearchField from "@/components/SearchField/SearchField";
 import Title from "@/components/Title/Title";
@@ -19,10 +19,10 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import LocationSearch, {
   LocationOption,
-} from "@/components/LocationSearch/LocationSearch";
+} from "@/components/Notices/LocationSearch/LocationSearch";
 import FilterButtons, {
   FilterValue,
-} from "@/components/FilterButtons/FilterButtons";
+} from "@/components/Notices/FilterButtons/FilterButtons";
 import Loader from "@/components/Loader/Loader";
 
 const LIMIT = 6;

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import css from "./header.module.css";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import BurgerMenu from "@/components/BurgerMenu/BurgerMenu";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuthStore } from "@/lib/store/authStore";

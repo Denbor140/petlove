@@ -1,10 +1,10 @@
 import { useAuthStore } from "@/lib/store/authStore";
-import { useModal } from "../ModalProvider/ModalProvider";
+import { useModal } from "@/components/Providers/ModalProvider/ModalProvider";
 import css from "./NoticesItem.module.css";
 import { Notice } from "@/types/notice";
 import { getNoticesById } from "@/lib/api/clientApi";
 import { useMutation } from "@tanstack/react-query";
-import { Tab } from "../MyNotices/MyNotices";
+import { Tab } from "@/components/Profile/MyNotices/MyNotices";
 import { usePathname } from "next/navigation";
 
 interface LearnMoreButtonProps {

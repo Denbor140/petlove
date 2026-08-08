@@ -2,7 +2,7 @@
 
 import css from "./MyNotices.module.css";
 import { Notice } from "@/types/notice";
-import NoticesList from "../NoticesList/NoticesList";
+import NoticesList from "../../Notices/NoticesList/NoticesList";
 import { useState } from "react";
 
 interface MyNoticesProps {

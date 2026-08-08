@@ -1,9 +1,9 @@
 import css from "./UserCard.module.css";
-import EditUserBtn from "../EditUserBtn/EditUserBtn";
+import EditUserBtn from "@/components/EditUserBtn/EditUserBtn";
 import UserBlock from "../UserBlock/UserBlock";
 import { UserFull } from "@/types/user";
 import PetsBlock from "../PetsBlock/PetsBlock";
-import LogOutBtn from "../LogOutBtn/LogOutBtn";
+import LogOutBtn from "@/components/LogOutBtn/LogOutBtn";
 
 interface UserCardProps {
   user: UserFull;

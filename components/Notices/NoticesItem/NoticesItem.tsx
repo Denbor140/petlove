@@ -7,7 +7,7 @@ import LearnMoreButton from "./LearnMoreButton";
 import FavoritesButton from "./FavoritesButton";
 import { useAuthStore } from "@/lib/store/authStore";
 import { useMemo } from "react";
-import { Tab } from "../MyNotices/MyNotices";
+import { Tab } from "@/components/Profile/MyNotices/MyNotices";
 import { usePathname } from "next/navigation";
 
 interface NoticesItemProps {

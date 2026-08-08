@@ -1,7 +1,7 @@
 "use client";
 import Loader from "@/components/Loader/Loader";
 import css from "./NewsPage.module.css";
-import NewsList from "@/components/NewsList/NewsList";
+import NewsList from "@/components/News/NewsList/NewsList";
 import Pagination from "@/components/Pagination/Pagination";
 import SearchField from "@/components/SearchField/SearchField";
 import Title from "@/components/Title/Title";

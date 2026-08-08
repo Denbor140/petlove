@@ -3,7 +3,7 @@
 import { UserFull } from "@/types/user";
 import css from "./UserBlock.module.css";
 import Image from "next/image";
-import { useModal } from "../ModalProvider/ModalProvider";
+import { useModal } from "@/components/Providers/ModalProvider/ModalProvider";
 
 interface UserBlockProps {
   user: UserFull;

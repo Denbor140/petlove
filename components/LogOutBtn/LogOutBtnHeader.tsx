@@ -1,7 +1,7 @@
 "ise client";
 
 import css from "./LogOutBtn.module.css";
-import { useModal } from "../ModalProvider/ModalProvider";
+import { useModal } from "../Providers/ModalProvider/ModalProvider";
 
 export default function LogOutBtnHeader() {
   const { openModal } = useModal();

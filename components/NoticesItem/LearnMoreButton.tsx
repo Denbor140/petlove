@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 
 interface LearnMoreButtonProps {
   notice: Notice;
-  tab: Tab;
+  tab?: Tab;
 }
 
 export default function LearnMoreButton({ notice, tab }: LearnMoreButtonProps) {

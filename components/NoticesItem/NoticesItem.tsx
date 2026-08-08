@@ -12,7 +12,7 @@ import { usePathname } from "next/navigation";
 
 interface NoticesItemProps {
   notices: Notice[];
-  tab: Tab;
+  tab?: Tab;
   onToggleFavorite?: (notice: Notice) => void;
 }
 

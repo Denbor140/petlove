@@ -4,7 +4,7 @@ import { Tab } from "../MyNotices/MyNotices";
 
 interface NoticesListProps {
   notices: Notice[];
-  tab: Tab;
+  tab?: Tab;
 }
 
 export default function NoticesList({ notices, tab }: NoticesListProps) {

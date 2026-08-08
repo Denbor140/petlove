@@ -6,6 +6,7 @@
 ![Formik](https://img.shields.io/badge/Formik-form_handling-orange)
 ![Yup](https://img.shields.io/badge/Yup-validation-yellow)
 ![React Router](https://img.shields.io/badge/React_Router-routing-red)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?logo=cloudinary&logoColor=white)
 
 ---
 

@@ -38,6 +38,8 @@ The app allows users to:
   - list of pets added to favorites
   - list of the user's own added pets, with the option to delete them
   - a button for adding your own pet (form: gender, avatar upload, name, date of birth, and type) — after adding, the user is redirected to the profile page, where the new pet is displayed right away
+  - ⏳ Themed **Loader** — a dog image on the background with a percentage-based loading progress; the image changes depending on the screen width
+- ☁️ User avatar and pet photo uploads are handled via **Cloudinary**
 - 📱 Responsive layout from 320px to 1280px
 
 ---
@@ -49,6 +51,7 @@ The app allows users to:
 - **Routing:** React Router
 - **Forms:** Formik + Yup
 - **Styling:** CSS Modules
+- **Media Storage:** Cloudinary (avatar & pet photo uploads)
 - **Backend:** REST API ([Swagger UI](https://petlove.b.goit.study/api-docs/))
 
 ---

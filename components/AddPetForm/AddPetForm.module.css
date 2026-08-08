@@ -17,9 +17,18 @@
 }
 
 .form_gender_container {
+  position: relative;
   display: flex;
   gap: 8px;
   margin-bottom: 8px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1279px) {
+  .form_gender_container > span {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
 }
 
 .gender_btn {
@@ -229,11 +238,13 @@
 .form_image_container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .form_image_container,
 .form_title_container,
 .form_name_container {
+  position: relative;
   margin-bottom: 10px;
 }
 
@@ -301,7 +312,8 @@
   }
 }
 
-.birthday_input_container {
+.birthday_input_container,
+.form_species_container {
   position: relative;
 }
 
@@ -327,6 +339,15 @@
   line-height: 1.2;
   letter-spacing: -0.03em;
   color: #ef2447;
+}
+
+@media screen and (min-width: 1280px) {
+  .error {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 12px;
+  }
 }
 
 .input_error {

@@ -171,6 +171,15 @@
   color: #ef2447;
 }
 
+@media screen and (min-width: 1280px) {
+  .error {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 12px;
+  }
+}
+
 .input_error {
   border-color: var(--input-border-error);
 }

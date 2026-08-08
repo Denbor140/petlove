@@ -14,13 +14,16 @@ export default function Header() {
   const pathname = usePathname();
   const [open, isOpen] = useState(false);
   const { isAuthenticated, user } = useAuthStore();
+  const isHomePage = pathname === "/";
 
   return (
     <header
       className={`${css.header} ${pathname === "/" ? css.header : css.header_primary}`}
     >
       <div className="container">
-        <div className={css.header_container}>
+        <div
+          className={`${css.header_container} ${isHomePage ? css.header_container_home : ""}`}
+        >
           <Link href={"/"}>
             {pathname === "/" ? (
               <svg className={css.logo}>

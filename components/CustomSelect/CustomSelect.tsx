@@ -32,7 +32,7 @@ export default function CustomSelect({
 
   return (
     <div
-      className={`${css.select_container} ${isAddPetPage ? css.select_container_pet : ""}`}
+      className={`${isAddPetPage ? css.select_container_pet : css.select_container}`}
     >
       <div
         className={`${css.select_value} ${isAddPetPage ? css.select_value_pet : ""}`}

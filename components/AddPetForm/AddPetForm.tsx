@@ -174,8 +174,8 @@ export default function AddPetForm() {
                   </div>
                 );
               })}
+              <ErrorMessage name="sex" component="span" className={css.error} />
             </div>
-            <ErrorMessage name="sex" component="span" className={css.error} />
 
             {petAvatarPreview ? (
               <Image
@@ -194,15 +194,24 @@ export default function AddPetForm() {
             )}
 
             <div className={css.form_image_container}>
-              <input
-                type="text"
-                placeholder="Enter URL"
-                value={petAvatarPreview}
-                readOnly
-                className={`${css.form_input_img} ${
-                  petAvatarPreview ? css.input_success : ""
-                }`}
-              />
+              <Field name="img">
+                {({ field, form }: FieldProps) => (
+                  <input
+                    type="text"
+                    placeholder="Enter URL"
+                    value={petAvatarPreview}
+                    readOnly
+                    className={`${css.form_input_img} ${
+                      petAvatarPreview
+                        ? css.input_success
+                        : form.submitCount > 0 && !field.value
+                          ? css.input_error
+                          : ""
+                    }`}
+                  />
+                )}
+              </Field>
+
               <button
                 type="button"
                 className={css.upload_btn}
@@ -221,12 +230,12 @@ export default function AddPetForm() {
                 hidden
                 onChange={(e) => handleFileChange(e, setFieldValue)}
               />
+              <ErrorMessage
+                name="imgURL"
+                component="span"
+                className={css.error}
+              />
             </div>
-            <ErrorMessage
-              name="imgURL"
-              component="span"
-              className={css.error}
-            />
 
             <div className={css.form_title_container}>
               <Field name="title">
@@ -277,28 +286,26 @@ export default function AddPetForm() {
             </div>
 
             <div className={css.form_bs_container}>
-              <div className={css.form_birthday_container}>
-                <div className={css.birthday_input_container}>
-                  <Field name="birthday">
-                    {({ field, meta }: FieldProps) => (
-                      <input
-                        {...field}
-                        type="text"
-                        placeholder="YYYY-MM-DD"
-                        className={`${css.form_input} ${
-                          meta.touched && meta.error
-                            ? css.input_error
-                            : meta.touched && !meta.error
-                              ? css.input_success
-                              : ""
-                        }`}
-                      />
-                    )}
-                  </Field>
-                  <svg width={18} height={18} className={css.calendar_img}>
-                    <use href="/icons.svg#icon-calendar"></use>
-                  </svg>
-                </div>
+              <div className={css.birthday_input_container}>
+                <Field name="birthday">
+                  {({ field, meta }: FieldProps) => (
+                    <input
+                      {...field}
+                      type="text"
+                      placeholder="YYYY-MM-DD"
+                      className={`${css.form_input} ${
+                        meta.touched && meta.error
+                          ? css.input_error
+                          : meta.touched && !meta.error
+                            ? css.input_success
+                            : ""
+                      }`}
+                    />
+                  )}
+                </Field>
+                <svg width={18} height={18} className={css.calendar_img}>
+                  <use href="/icons.svg#icon-calendar"></use>
+                </svg>
                 <ErrorMessage
                   name="birthday"
                   component="span"
